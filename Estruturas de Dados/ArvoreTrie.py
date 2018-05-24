@@ -22,11 +22,13 @@ class Trie():
     Objeto árvore Trie básica usada para contagem de palavras.
     Obs.: Modelo com leitura apenas de letras minúsculas e sem acento.
     '''
-    def __init__(self, num = 0, fim = False, **kwargs):
+    def __init__(self, num = 0, fim = False, *args):
         self.raiz = True
         self.letra = [None]*26
         self.num = num
         self.fim = fim
+        for item in args:
+            self.inserir(item)
     
     def inserir (self, palavra):
         pos = lambda c: ord(c)-ord('a')
