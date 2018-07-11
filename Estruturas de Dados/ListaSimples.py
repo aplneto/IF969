@@ -88,8 +88,8 @@ class Lista():
         Método usado para modificar valor de um nó existente na lista.
         Caso o nó não exista na lista, o método levanta uma exceção IndexError.
         '''
-        atual = self.primeiro.prox
-        cont = 0
+        atual = self.primeiro
+        cont = -1
         while cont < index:
             if atual.prox is None:
                 raise IndexError ("Índice fora de alcance")
