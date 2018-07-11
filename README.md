@@ -3,4 +3,4 @@ Algoritmos de ordenação e estruturas de dados estudados na cadeira IF969 (Algo
 
 Professor: Renato Vimieiro (rv2)
 
-Aluno: Antônio Paulino de Lima Neto (apln2)
+Aluno: Antônio Paulino de Lima Neto (@aplneto)
