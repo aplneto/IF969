@@ -17,17 +17,19 @@ auxiliar de nós, usados na construção da lista.
             Copyright(c) 2018 Antônio Paulino de Lima Neto
 
 """
-
+#------------------------------------------------------------------------------
 # Demonstração gráfica simples de uma lista de encadeamento simples de tamanho
 # n, onde os números entre colchetes representam os índices de cada nó
 #
-#               [Primeiro]
+#                Primeiro
 #                    |
 #                   \/
 #               [Cabeça] -> [0] -> [1] -> ... -> [n-1] -> None
 #                                                 /\
 #                                                 |
-#                                             [Último]
+#                                              Último
+#
+#------------------------------------------------------------------------------
 
 class _No():
     '''
