@@ -64,17 +64,16 @@ class Lista():
     inseridos na lista são armazenados em nós dipostos um após o outro. Cada
     nó guarda a referência do próximo nó e do nó anterior a ele.
     '''
-    def __init__(self, *elementos):
+    def __init__(self, iteravel = None):
         '''
         Método construtor da lista duplamente encadeada.
-        Esse método aceita parâmetro nenhum, ou um ou mais parâmetros que 
-        são, em ordem, anexados a lista.
+        É possível construir uma lista duplamente encadeada apartir de um
+        iterável passado como parâmetro para esse método.
         '''
-        self.primeiro = _No()
-        self.ultimo = self.primeiro
-        self.tamanho = 0
-        for valor in elementos:
-            self.anexar(valor)
+        self.primeiro = self.ultimo = _No()
+        if not iteravel is None:
+            for obj in iteravel:
+                self.anexar(obj)
     
     def anexar(self, valor):
         '''
@@ -86,38 +85,215 @@ class Lista():
     
     def __buscarno(self, i):
         '''
-        Esse método busca o nó correspondente a o indice informado como
-        parâmetro.
-        Buscar um nó é uma operação comum, a criação de um método separado para
-        tal, visa facilitar essa tarefa.
-        Esse método levanta uma exceção IndexError, caso o índice não pertença
-        a lista.
-        Esse é o método que busca um nó da esquerda para a direita (i >= 0)
+        Esse método busca o e retorna o nó correspondente ao indice 
+        informado como parâmetro, levantando uma exceção IndexError, caso o
+        índice não pertença a lista.
+        Esse método é útil pois a mesma operação se repete em dois métodos
+        distintos (buscar e modificar).
+        Esse método é um pouco mais complicado do que o método de busca da
+        lista simples porque a busca pode ser feito da esquerda para a direita
+        (i >= 0) ou da direita para a esquerda (i < 0). Para isso são
+        necessários alguns cálculos antes.
         '''
-        atual = self.primeiro.proximo
-        cont = 0
-        while cont < atual:
-            if atual.proximo is None:
-                raise IndexError("Índice fora de alcance.")
-            else:
-                atual = atual.proximo
-                cont += 1
+        if self.primeiro == self.ultimo:
+            raise IndexError ("lista vazia")
+        if i >= 0:
+            # Se o índice for positivo a lista anda da esquerda para a direita,
+            # começando do primeiro nó
+            atual = self.primeiro
+            passo = lambda no: no.proximo
+            comp = lambda n, i: n<i
+            inc = lambda n: n+1
+        else:
+            # Caso o índice seja negativo a lista anda da direita para a
+            # esquerda, começando do último nó
+            atual = self.ultimo
+            passo = lambda no: no.anterior
+            comp = lambda n, i: n>i
+            inc = lambda n: n-1
+        cont = -1
+        while comp(cont, i):
+            if passo(atual) is None or passo(atual) == self.primeiro:
+                raise IndexError ("índice fora de alcance")
+            atual = passo(atual)
+            cont = inc(cont)
         return atual
     
-    def __buscarnoadire(self, i):
+    def buscar(self, index):
         '''
-        Método com a mesma funcionalidade do método __buscarno, com a diferença
-        de realizar a busca da direita para a esquerda (i < 0).
+        Método para buscar o valor guardado pelo nó de índice informado como
+        parâmetro. Levanta uma exceção IndexError caso o índice não pertença a
+        lista.
+        Código da busca no método __buscarno
         '''
-        pass
+        return self.__buscarno(index).valor
     
+    def modificar(self, index, valor):
+        '''
+        Função semelhante a de busca, no entanto, encontra um nó específico
+        e modifica o valor armazenado naquele nó.
+        '''
+        no = self.__buscarno(index)
+        no.valor = valor
+        
     def inserir(self, index, valor):
         '''
-        Essa função permite inserir valores de maneira ordenada na lista.
-        O índice, para essa função, deve
+        Esse método permite inserir valores de maneira ordenada na lista.
+        Caso o índice seja muito maior do que o tamanho da lista, o valor é
+        inserido no final, e caso seja muito menor o valor será inserido no
+        início.
         '''
         # Se a lista estiver vazia, basta anexar o elemento
         if self.primeiro == self.ultimo:
             self.anexar(valor)
         else:
-            pass
+            if index >= 0:
+                passo = lambda no: no.proximo
+                atual = self.primeiro
+            else:
+                passo = lambda no: no.anterior
+                atual = self.ultimo
+            cont = 0
+            while cont < abs(index) and passo(atual) is not None:
+                atual = passo(atual)
+                cont += 1
+            atual.proximo = _No(valor, atual, atual.proximo)
+            if self.ultimo == atual:
+                self.utlimo = atual.proximo
+            else:
+                atual.proximo.anterior = atual.proximo
+    
+    def indice(self, valor, inicio = None, fim = None):
+        '''
+        Esse método busca pelo índice de um valor na lista. Ele retorna o
+        índice da primeira posição em que o valor aparece (caso o valor apareça
+        mais de uma vez na lista) ou levanta uma exceção ValueError, caso o
+        valor não pertença a nenhum dos nós da lista.
+        '''
+        if inicio is not None and not isinstance (inicio, int):
+            raise ValueError ("parâmetro inicio deve ser um número inteiro")
+        elif fim is not None and not isinstance (fim, int):
+            raise ValueError ("parâmetro fim deve ser um número inteiro")
+        else:
+            if inicio is None:
+                inicio = 0
+            if fim is None:
+                fim = float('inf')
+        atual = self.primeiro
+        cont = 0
+        while atual.proximo is not None:
+            if atual.proximo.valor == valor and\
+            (cont >= inicio and cont <= fim):
+                return cont
+            else:
+                atual = atual.proximo
+                cont += 1
+        raise ValueError ('{} não está na lista'.format(repr(valor)))
+    
+    def retirar(self, index = 0):
+        '''
+        Método usado para remover um nó da lista e retornar o valor nele
+        armazenado.
+        '''
+        if self.primeiro == self.ultimo:
+            raise IndexError ("impossível retirar de lista vazia")
+        no = self.__buscarno(index)
+        if no == self.ultimo:
+            return self.removerfim()
+        else:
+            no.anterior.proximo = no.proximo
+            no.proximo.anterior = no.anterior
+            no.anterior = no.proximo = None
+            valor = no.valor
+            del no
+            return valor
+    
+    def removerfim(self):
+        '''
+        Método usado para remover o último elemento da lista.
+        '''
+        aux = self.ultimo
+        self.ultimo = aux.anterior
+        aux.anterior.proximo = None
+        aux.anterior = None
+        valor = aux.valor
+        del aux
+        return valor
+    
+    def remover(self, valor):
+        '''
+        Método usado para encontrar o nó que armazena um determinado valor e
+        removê-lo da lista.
+        Caso o valor não exista na lista uma exceção ValueError é levantada.
+        '''
+        if self.primeiro == self.ultimo:
+            raise ValueError ("impossível remover itens de uma lista vaiza")
+        atual = self.primeiro.proximo
+        while atual.valor != valor:
+            if atual.proximo is None:
+                raise ValueError ("{} não está na lista")
+            else:
+                atual = atual.proximo
+        atual.anterior.proximo = atual.proximo
+        if atual != self.ultimo:
+            atual.proximo.anterior = atual.anterior
+        else:
+            self.utlimo = atual.anterior
+        atual.anterior = atual.proximo = None
+        del atual
+
+    # Adiante estão os métodos especiais (magic operators) de Python.
+    # Note que alguns deles apenas chamam funções criadas anteriormente
+    # Para uma explicação mais detalhada dos métodos abaixo, veja o arquivo
+    # ListaSimples.py
+    
+    def __contains__(self, valor):
+        if self.primeiro == self.ultimo:
+            return False
+        atual = self.primeiro.proximo
+        while atual is not None:
+            if atual.valor == valor:
+                return True
+            atual = atual.proximo
+        return False
+    
+    def __len__(self):
+        atual = self.primeiro.proximo
+        cont = 0
+        while atual is not None:
+            cont += 1
+            atual = atual.proximo
+        return cont
+    
+    def __getitem__(self, i):
+        return self.buscar(i)
+    
+    def __setitem__(self, i, v):
+        self.modificar(i, v)
+        
+    def __str__(self):
+        return self.__repr__()
+    
+    def __repr__(self):
+        string = ''
+        anterior = self.primeiro
+        atual = anterior.proximo
+        while not atual is None:
+            string += atual.valor.__repr__()
+            if atual.proximo is not None:
+                string += ', '
+            anterior = atual
+            atual = anterior.proximo
+        return "[{}]".format(string)
+    
+    def __iter__(self):
+        self.__atual = self.primeiro.proximo
+        return self
+    
+    def __next__(self):
+        if self.__atual is None:
+            raise StopIteration
+        else:
+            item = self.__atual.valor
+            self.__atual = self.__atual.proximo
+            return item

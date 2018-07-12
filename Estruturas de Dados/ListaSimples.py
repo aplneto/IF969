@@ -55,6 +55,15 @@ class Lista():
     caso ele exista, ou para None, caso não haja nó sucessor.
     '''
     def __init__(self, iteravel = None):
+        '''
+        Método construtor da Lista.
+        Esse é o método que será chamado no momento em que um objeto do tipo
+        Lista for instanciado. Logo, são os parâmetros desse método que
+        determinam quais parâmetros são necessários a construção do objeto.
+        No caso desse método em espeífico, ele pode ser construído a partir de
+        um outro iterável (como uma tupla, dicionário, lista ou string) ou pode
+        ser construído como uma lista vazia.
+        '''
         self.primeiro = self.ultimo = _No()
         if not iteravel is None:
             for obj in iteravel:
@@ -90,11 +99,13 @@ class Lista():
         Método usado para modificar valor de um nó existente na lista.
         Caso o nó não exista na lista, o método levanta uma exceção IndexError.
         '''
+        if self.primeiro == self.ultimo:
+            raise IndexError ("lista vazia")
         atual = self.primeiro
         cont = -1
         while cont < index:
             if atual.prox is None:
-                raise IndexError ("Índice fora de alcance")
+                raise IndexError ("índice fora de alcance")
             else:
                 atual = atual.prox
                 cont += 1
@@ -106,37 +117,45 @@ class Lista():
         Caso o índice não pertença a lista, uma exceção IndexError é levantada.
         Esse método faz a busca da esquerda para a direita (indice >= 0)
         '''
-        atual = self.primeiro.prox
-        cont = 0
+        atual = self.primeiro
+        cont = -1
         while cont < index:
             if atual.prox is None:
-                raise IndexError ("Índice fora de alcance")
+                raise IndexError ("índice fora de alcance")
             else:
                 atual = atual.prox
                 cont += 1
         return atual.item
     
-    def indice(self, item):
+    def indice(self, item, inicio = None, fim = None):
         '''
-        Método usado para encontrar o índice dadi um elemento da lista. Esse
+        Método usado para encontrar o índice dado um elemento da lista. Esse
         método retorna o índice da primeira posição em que o elemento aparece,
         caso ele apareça mais de uma vez na mesma lista.
+        É possível limitar a busca a um determinado intervalo da lista
+        informando os parametros inicio e fim.
         Caso o item não pertença a lista, uma exceção ValueError é levantada.
         '''
-        # Se a lista estiver vazia a busca levanta ValueError imediatamente
-        if self.primeiro == self.ultimo:
-            raise ValueError ("Lista vazia")
+        if inicio is not None and not isinstance(inicio, int):
+            raise ValueError ("inicio deve ser um número inteiro")
+        elif fim is not None and not isinstance(fim, int):
+            raise ValueError ("fim deve ser um número inteiro")
+        else:
+            if inicio is None:
+                inicio = 0
+            if fim is None:
+                fim = float('inf')
         atual = self.primeiro
         cont = 0
         while atual.prox is not None:
-            if atual.prox.item == item:
+            if atual.prox.item == item and (cont >= inicio and cont <= fim):
                 return cont
             else:
                 atual = atual.prox
                 cont += 1
         raise ValueError ("{} não pertencem a lista".format(repr(item)))
     
-    def retirar(self, index):
+    def retirar(self, index = 0):
         '''
         Método usado para remover um nó da lista e recuperar o valor que o nó
         guardava.
@@ -144,12 +163,12 @@ class Lista():
         '''
         # Se a lista estiver vazia o método levanta uma exceção IndexError
         if self.primeiro == self.ultimo:
-            raise IndexError ("Não é possível retirar valores de lista vazia")
+            raise IndexError ("não é possível retirar valores de lista vazia")
         atual = self.primeiro
         cont = 0
         while cont < index:
             if atual.prox is None:
-                raise IndexError("Índice fora de alcance")
+                raise IndexError("índice fora de alcance")
             else:
                 atual = atual.prox
                 cont += 1
@@ -173,7 +192,7 @@ class Lista():
         '''
         # Se a lista estiver vazia o método levanta uma exceção ValueError
         if self.primeiro == self.ultimo:
-            raise ValueError ("Não é possível remover itens de lista vazia")
+            raise ValueError ("não é possível remover itens de uma lista vazia")
         anterior = self.primeiro
         atual = anterior.prox
         while not atual is None and atual.item != item:
@@ -198,6 +217,8 @@ class Lista():
         Esse é o método utilizado quando o operador in é chamado. Deve retornar
         True caso o objeto pertença a lista e False caso contrário.
         '''
+        if self.primeiro == self.ultimo:
+            return False
         atual = self.primeiro.prox
         while atual is not None:
             if atual.item == item:
@@ -212,14 +233,12 @@ class Lista():
         Nessa implementação em específico, o método conta quantos nós fazem
         parte da lista.
         '''
-        no = self.primeiro
+        no = self.primeiro.prox
         cont = 0
         while no is not None:
-            if no.prox is None:
-                return cont
-            else:
-                cont += 1
-                no = no.prox
+            cont += 1
+            no = no.prox
+        return cont
     
     def __str__(self):
         '''
