@@ -23,8 +23,8 @@ class Trie():
     '''
     Objeto árvore Trie básica usada para contagem de palavras.
     Modelo utilizado para contagem de palavras apenas contendo letras
-    maiúsculas e minúsculas, armazenando todos os caracteres que não se
-    pertençam a nenhum dos dois tipos como '?'.
+    maiúsculas e minúsculas, armazenando todos os caracteres que não pertençam
+    a nenhum dos dois tipos como '?'
     '''
     def __init__(self, texto = ''):
         self.raiz = _Node()
