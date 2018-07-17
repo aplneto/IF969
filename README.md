@@ -11,7 +11,7 @@ Algoritmos de ordenação e estruturas de dados estudados na cadeira IF969 (Algo
 1. Listas
     1. [Lista com Encadeamento Simples](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/ListaSimples.py)
     1. [Lista Duplamente Encadeada](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/ListaDupla.py)
-    1. Pilha
+    1. [Pilha](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/Pilha.py)
     1. Fila
 1. Árvores
     1. Árvore Binária
