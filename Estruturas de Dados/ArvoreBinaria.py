@@ -292,7 +292,7 @@ class Arvore:
         Usar um loop em um dicionário implica em varrer as chaves que indexam
         esse dicionário.
         O método mais simples para iterar através de um dicionário é retornar
-        um iterador para a lista de chaves. basta usar a expressão abaixo:
+        um iterador para a lista de chaves. Bastando usar a expressão abaixo:
         
         return iter(self.chaves())
         
