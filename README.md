@@ -16,9 +16,9 @@ Aluno: Antônio Paulino de Lima Neto (apln2)
     1. Fila
 1. Árvores
     1. Árvore Binária
-        1. Simples
-        1. 2-3
+        1. [Simples](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/ArvoreBinaria.py)
         1. Rubro-negra
+    1. Árvore 2-3
     1. Árvore Trie
     1. Árvore Patrícia (Radix Tree)
 1. Hash
@@ -43,3 +43,4 @@ Aluno: Antônio Paulino de Lima Neto (apln2)
     1. Replacement Selection
 
 ### Grafos
+1. TAD Grafos
