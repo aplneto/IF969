@@ -22,12 +22,10 @@ auxiliar de nós, usados na construção da lista.
 # n, onde os números entre colchetes representam os índices de cada nó
 #
 #                Primeiro
-#                    |
-#                   \/
+#                  \/
 #               [Cabeça] -> [0] -> [1] -> ... -> [n-1] -> None
 #                                                 /\
-#                                                 |
-#                                              Último
+#                                               Último
 #
 #------------------------------------------------------------------------------
 
