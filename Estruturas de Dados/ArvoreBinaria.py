@@ -232,13 +232,35 @@ class Arvore:
             msg += str(nodo)
         return msg
     
+    def keys(self):
+        '''
+        Método de dicionários que retorna uma lista contendo todas as chaves
+        do dicionário.
+        '''
+        return self.__chaves(self.raiz)
+    
+    def __chaves(self, nodo, chaves = []):
+        pass
+        
+    
     # Métodos Especiais
     
     def __len__(self):
         return self.__contar(self.raiz)
+    
+    def __getitem__(self, chave):
+        return self.buscar(chave)
+    
+    def __setitem__(self, chave, valor):
+        return self.inserir(chave, valor)        
     
     def __str__(self):
         return "{"+self.pre_ordem(self.raiz)+"}"
     
     def __repr__(self):
         return "{"+self.em_ordem(self.raiz)+"}"
+
+if __name__ == "__main__":
+    preordem = [(5, "cinco"), (4, "quatro"), (2, "dois"), (1, "um"), (3, "tres"),
+              (10, "dez"), (6, "seis"), (7, "sete"), (9, "nove"), (8, "oito")]
+    teste = Arvore(preordem)
