@@ -96,3 +96,149 @@ class Arvore:
         else:
             no.valor = valor
         return no
+    
+    def buscar(self, chave):
+        '''
+        Função de pesquisa. Recebe como parâmetro a chave de um nó e retorna o
+        valor que esse nó guarda. Caso não a chave não exista, levanta uma
+        exceção KeyError
+        '''
+        no = self.raiz
+        while no is not None:
+            if chave == no.chave:
+                return no.valor
+            elif chave < no.chave:
+                no = no.e
+            else:
+                no = no.d
+        raise KeyError (chave)
+    
+    def remover(self, chave):
+        '''
+        Existem três possibilidades de eventos quando se tenta remover um nó de
+        uma árvore binária.
+        Na primeira o nó buscado não existe. Nesse caso não há nada a se fazer
+        se não levantar um erro.
+        Na segunda, o nó buscado possui um ou nenhum filho. Nesse caso, caso o
+        nó possua apenas um filho, depois de removê-lo basta promover o filho a
+        posição a qual o nó estava.
+        O problema surge quando o nó possui dois filhos. Nesse caso, é preciso
+        uma maior cautela ao escolher o nó a ser promovido (veja a função
+        __sucessor).
+        '''
+        self.raiz, valor = self.__remover(self.raiz, chave)
+        return valor
+    
+    def __remover(self, nodo, chave):
+        if nodo is None:
+            raise KeyError(chave)
+        elif chave == nodo.chave:
+            valor = nodo.valor
+            if nodo.d is None:
+                aux = nodo
+                nodo = nodo.e
+                del aux
+            elif nodo.e is None:
+                aux = nodo
+                nodo = nodo.d
+                del aux
+            else:
+                nodo.d = self.__sucessor(nodo, nodo.d)
+            return nodo, valor
+    
+    def __sucessor(self, no, nodo):
+        '''
+        Para promover um nó é necessário achar um entre os dois valor possíveis
+        para a substituição: o nó imediatamente anterior ao nó que vai ser
+        substituído (antecessor) ou o imediatamente posterior (sucessor). Para
+        essa implementação eu escolhi fazer a substituição pelo sucessor, mas
+        a implementação com o antecessor pode ser vista nos slides do professor
+        Renato.
+        O antecessor é sempre o maior entre os menores (o mais a direita entre
+        os nós a esquerda do nó que será substituído) e o sucessor é o menor
+        entre os maiores (o mais a esquerda dos nós a direita).
+        '''
+        if nodo.e is not None:
+            nodo.e = self.__sucessor(no, nodo.e)
+        else:
+            aux = nodo
+            no.valor = nodo.valor
+            no.chave = nodo.chave
+            nodo = nodo.d
+            del aux
+        return nodo
+    
+    def __contar(self, n):
+        '''
+        Método de contagem simples.
+        '''
+        if not n is None:
+            return self.__contar(n.e)+self.__contar(n.d)+1
+        else:
+            return 0
+    
+    def em_ordem(self, nodo):
+        '''
+        Método de impressão ordenada de uma árvore binária.
+        Imprime primeiro a sub-árvore da esquerda, depois a raiz e por último a
+        sub-árvore da direita.
+        '''
+        msg = ''
+        if nodo is not None:
+            
+            # Essa variável auxiliar serve para a colocação correta da vírgula
+            aux = self.em_ordem(nodo.e)
+            msg += aux
+            if aux: msg += ', '
+            msg += str(nodo)
+            
+            # Essa variável auxiliar também
+            aux = self.em_ordem(nodo.d)
+            if aux: msg += ', '
+            msg += aux
+        return msg
+    
+    def pre_ordem(self, nodo):
+        '''
+        Método de impressão em pré-ordem de uma árvore binaria.
+        Imprime primeiro a raiz, depois a sub-árvore da esquerda e por último a
+        sub-árvore da direita.
+        '''
+        msg = ''
+        if nodo is not None:
+            msg += str(nodo)
+            aux = self.pre_ordem(nodo.e)
+            if aux: msg += ', '
+            msg += aux
+            aux = self.pre_ordem(nodo.d)
+            if aux: msg += ', '
+            msg += aux
+        return msg
+    
+    def pos_ordem(self, nodo):
+        '''
+        Método de impressão em pós-ordem de uma árvore binária.
+        Imprime primeiro a sub-árvore da esquerda, depois a sub-árvore da
+        direita e por último a raiz.
+        '''
+        msg = ''
+        if nodo is not None:
+            aux = self.pos_ordem(nodo.d)
+            msg += aux
+            if aux: msg += ', '
+            aux = self.pos_ordem(nodo.e)
+            msg += aux
+            if aux: msg += ', '
+            msg += str(nodo)
+        return msg
+    
+    # Métodos Especiais
+    
+    def __len__(self):
+        return self.__contar(self.raiz)
+    
+    def __str__(self):
+        return "{"+self.pre_ordem(self.raiz)+"}"
+    
+    def __repr__(self):
+        return "{"+self.em_ordem(self.raiz)+"}"
