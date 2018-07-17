@@ -4,8 +4,8 @@
 
 Algoritmos de ordenação e estruturas de dados estudados na cadeira IF969 (Algoritmos e Estrturas de Dados). CIn - UFPE (2018.1)
 
-Professor: [Renato Vimieiro](mailto:rv2@cin.ufpe.br)
-Aluno: [Antônio Paulino de Lima Neto](mailto:apln2@cin.ufpe.br)
+* Professor: [Renato Vimieiro](mailto:rv2@cin.ufpe.br)
+* Aluno: [Antônio Paulino de Lima Neto](mailto:apln2@cin.ufpe.br)
 
 ### Estruturas de Dados
 1. Listas
