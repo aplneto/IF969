@@ -232,15 +232,37 @@ class Arvore:
             msg += str(nodo)
         return msg
     
-    def keys(self):
+    def chaves(self):
         '''
-        Método de dicionários que retorna uma lista contendo todas as chaves
-        do dicionário.
+        Método de dicionários (dict.keys()) que retorna uma lista contendo
+        todas as chaves do dicionário.
         '''
-        return self.__chaves(self.raiz)
+        info = []
+        info = self.__chaves(self.raiz, info)
+        return info
     
     def __chaves(self, nodo, chaves = []):
-        pass
+        if nodo is not None:
+            chaves.append(nodo.chave)
+            chaves = self.__chaves(nodo.e, chaves)
+            chaves = self.__chaves(nodo.d, chaves)
+        return chaves
+    
+    def valores(self):
+        '''
+        Método de dicionários que retorna uma lista contendo todos os valores
+        do dicionário.
+        '''
+        info = []
+        info = self.__valores(self.raiz, info)
+        return info
+    
+    def __valores(self, nodo, valores = []):
+        if nodo is not None:
+            valores.append(nodo.valor)
+            valores = self.__valores(nodo.e, valores)
+            valores = self.__valores(nodo.d, valores)
+        return valores
         
     
     # Métodos Especiais
@@ -259,6 +281,33 @@ class Arvore:
     
     def __repr__(self):
         return "{"+self.em_ordem(self.raiz)+"}"
+    
+    # ATENÇÃO! Os métodos espeiciais abaixo são um pouco mais complexos do que
+    # os métodos estudados até agora. Para aqueles que tiverem curiosidade do
+    # funcionamento dos métodos a seguir, procurem por "generators and
+    # coroutines"
+    
+    def __iter__(self):
+        '''
+        Usar um loop em um dicionário implica em varrer as chaves que indexam
+        esse dicionário.
+        O método mais simples para iterar através de um dicionário é retornar
+        um iterador para a lista de chaves. basta usar a expressão abaixo:
+        
+        return iter(self.chaves())
+        
+        No entanto, para os mais curiosos, segue um método recursivo de
+        iteração utilizando geradores.
+        '''        
+        def _ponteiro(no):
+            if no.e:
+                yield from _ponteiro(no.e)
+            yield no.chave
+            if no.d:
+                yield from _ponteiro(no.d)
+                
+        return _ponteiro(self.raiz)
+        
 
 if __name__ == "__main__":
     preordem = [(5, "cinco"), (4, "quatro"), (2, "dois"), (1, "um"), (3, "tres"),
