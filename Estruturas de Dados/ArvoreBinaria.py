@@ -22,7 +22,8 @@ Descricao: Árvore Binária
 # números inteiros e os valores são as strings contendo os números ecritos por
 #                                     extenso
 #
-#
+#                                        raiz
+#                                         \/
 #                                   (5, "cinco")
 #                                    /        \
 #                         (4, "quatro")      (10, "dez")
