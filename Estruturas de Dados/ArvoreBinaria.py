@@ -307,9 +307,3 @@ class Arvore:
                 yield from _ponteiro(no.d)
                 
         return _ponteiro(self.raiz)
-        
-
-if __name__ == "__main__":
-    preordem = [(5, "cinco"), (4, "quatro"), (2, "dois"), (1, "um"), (3, "tres"),
-              (10, "dez"), (6, "seis"), (7, "sete"), (9, "nove"), (8, "oito")]
-    teste = Arvore(preordem)
