@@ -227,6 +227,31 @@ class Lista():
                 atual = atual.prox
         return False
     
+    def __delitem__(self, index):
+        '''
+        Essa função é chamada sempre que o usuário tentar deletar um item da
+        Lista usando a keyword del.
+        Por exemplo del lista[0].
+        Essa função funciona quase da mesma maneira que a função retirar (pop),
+        com a diferença de que nenhum valor precisa ser retornado.
+        '''
+        if self.primeiro == self.ultimo:
+            raise IndexError ("não é possível retirar valores de lista vazia")
+        atual = self.primeiro
+        cont = 0
+        while cont < index:
+            if atual.prox is None:
+                raise IndexError("índice fora de alcance")
+            else:
+                atual = atual.prox
+                cont += 1
+        aux = atual.prox
+        atual.prox = aux.prox
+        aux.prox = None
+        if self.ultimo == aux:
+            self.ultimo = atual
+        del aux
+    
     def __len__(self):
         '''
         Esse é o método que retorna o tamanho de uma lista.

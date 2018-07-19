@@ -133,7 +133,11 @@ class Arvore:
     def __remover(self, nodo, chave):
         if nodo is None:
             raise KeyError(chave)
-        elif chave == nodo.chave:
+        elif chave > nodo.chave:
+            nodo.d, valor = self.__remover(nodo.d, chave)
+        elif chave < nodo.chave:
+            nodo.e, valor = self.__remover(nodo.e, chave)
+        else:
             valor = nodo.valor
             if nodo.d is None:
                 aux = nodo
@@ -145,7 +149,7 @@ class Arvore:
                 del aux
             else:
                 nodo.d = self.__sucessor(nodo, nodo.d)
-            return nodo, valor
+        return nodo, valor
     
     def __sucessor(self, no, nodo):
         '''
@@ -282,6 +286,10 @@ class Arvore:
     
     def __repr__(self):
         return "{"+self.em_ordem(self.raiz)+"}"
+    
+    def __delitem__(self, chave):
+        aux = self.remover(chave)
+        del aux
     
     # ATENÇÃO! Os métodos espeiciais abaixo são um pouco mais complexos do que
     # os métodos estudados até agora. Para aqueles que tiverem curiosidade do

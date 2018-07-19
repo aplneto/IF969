@@ -247,6 +247,18 @@ class Lista():
     # Para uma explicação mais detalhada dos métodos abaixo, veja o arquivo
     # ListaSimples.py
     
+    def __delitem__(self, index):
+        if self.primeiro == self.ultimo:
+            raise IndexError ("impossível retirar de lista vazia")
+        no = self.__buscarno(index)
+        if no == self.ultimo:
+            return self.removerfim()
+        else:
+            no.anterior.proximo = no.proximo
+            no.proximo.anterior = no.anterior
+            no.anterior = no.proximo = None
+            del no
+    
     def __contains__(self, valor):
         if self.primeiro == self.ultimo:
             return False
