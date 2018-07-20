@@ -1,10 +1,10 @@
 # Programção Orientada a Objetos
 
 
-#####Aviso!
+##### Aviso!
 Esse é um guia rápido sobre o paradigma de orientação a objetos, então pode (e provavelmente vai) faltar informação ou detalhamento em determinados aspectos. No entanto, para aqueles com dúvidas sobre o uso de orientação a objetos em Python ou sobre a orientação a objetos em si, esse guia pode ser de alguma ajuda.
 Para um melhor aprendizado sobre programação orientada a objetos, cheque as referências.
-#####Programação Estruturada
+##### Programação Estruturada
 O paradigma de programação estruturado enfatisa o uso de subrotinas, laços de repetição, condicionais e estruturas em bloco na solução de problemas.
 Basicamente, as subrotinas são escritas e aplicadas a um determinado tipo de informação. Por exemplo:
 
@@ -29,12 +29,12 @@ print(acharletra(st, 'é'))
 Apesar de ser uma função útil, podemos observar que ela não term utilidade para, por exemplo, um objeto não iterável, como um inteiro, um float, um booleano...
 Se imaginarmos os tipos de dados como objetos palpáveis da vida real, temos que o controle das funcionalidades desses objetos estão sempre separados deles. É como ter, por exemplo, um *microondas* e, separadamente, um botão ou interrupetor que o liga, mas que não faz parte do *microondas*.
 A programação orientada a objetos tenta aproximar a programação da vida real nesse aspecto.
-#####Programação Orientada a Objetos
+##### Programação Orientada a Objetos
 Na programação orientada a objetos, as funções que os objetos podem cumprir estão acopladas a eles, são chamadas de métodos.
 No exemplo anterior, por exemplo, uma variável do tipo *microondas* teria um método responsável pelo seu ligamento, outro método responsável pelo desligamento, outro responsável pelo controle do contador, da potência... e assim sucessivamente. Na programação orientada a objetos, as funcionalidades dos tipos de objetos são seus métodos.
 Assim como funcionalidades, objetos da vida real também possuem características, podendo essas serem, ou não, mutáveis. Um objeto do tipo microondas, por exemplo, poderia ter as caracteríticas volume, peso, capacidade... em programação orientada a objetos, essas características também estão acopladas ao objeto e são chamadas de atributos.
 
-#####Características da POO
+##### Características da POO
 As características principais da programação orientada a objetos são a **Abstração**, **Herança**, **Polimorfismo** e **Encapsulamento**.
 
 **Abstração**:É utilizada para a definição de entidades do mundo real. Sendo onde são criadas as classes. Essas entidades são consideradas tudo que é real, tendo como consideração as suas características e ações.
@@ -77,7 +77,7 @@ Uma das grandes vantagens da herança é a reutilização de código, ideal para
 
 ![Hierarquia de Classes](https://img-21.ccm2.net/TFkixX1LWid1t6x1h3AancR9t-I=/56fc4b0ee402409cad1d4294085ab1f7/ccm-encyclopedia/poo-images-animaux2.gif)
 
-######No esquema de classe acima, Animal é a superclasse da qual Herbívoro e Carnívoro herdam características. A classe herbivoro herda características de ambas, Herbívoro e Carnívoro.
+###### No esquema de classe acima, Animal é a superclasse da qual Herbívoro e Carnívoro herdam características. A classe herbivoro herda características de ambas, Herbívoro e Carnívoro.
 
 Em Python 3, todos os objetos herdam características da classe built-in object.
 
