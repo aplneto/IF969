@@ -1,12 +1,13 @@
 # Algoritmos-IF969
 
-![UFPE](https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Bras%C3%A3o_da_UFPE.png/220px-Bras%C3%A3o_da_UFPE.png)
+[![UFPE](https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Bras%C3%A3o_da_UFPE.png/220px-Bras%C3%A3o_da_UFPE.png)](http://www2.cin.ufpe.br/site/index.php)
 
 Algoritmos de ordenação, estruturas de dados, Grafos e outros algoritmos estudados na cadeira IF969 (Algoritmos e Estrturas de Dados). CIn - UFPE (2018.1)
 
 * Professor: [Renato Vimieiro](mailto:rv2@cin.ufpe.br)
 * Aluno: [Antônio Paulino de Lima Neto](mailto:apln2@cin.ufpe.br)
 
+### Guia relâmpago de Programação Orientada a Objetos
 ### Estruturas de Dados
 1. Listas
     1. [Lista com Encadeamento Simples](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/ListaSimples.py)
@@ -14,16 +15,14 @@ Algoritmos de ordenação, estruturas de dados, Grafos e outros algoritmos estud
     1. [Pilha](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/Pilha.py)
     1. [Fila](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/Fila.py)
 1. Árvores
-    1. Árvore Binária
-        1. [Simples](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/ArvoreBinaria.py)
-        1. Rubro-negra
+    1. [Árvore Binária](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/ArvoreBinaria.py)
     1. Árvore 2-3
+    1. Árvore Binária Rubro-negra
+    1. Árvore Binária Rubro-negra inclinada a direita
     1. Árvore Trie
     1. Árvore Patrícia (Radix Tree)
 1. Hash
 1. Heap
-    1. Máximo
-    1. Mínimo
 
 ### Algoritmos de Ordenação
 1. [Ordenação Elementar](https://github.com/aplneto/IF969/blob/master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py)
