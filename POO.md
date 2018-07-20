@@ -1,12 +1,12 @@
-# ProgramÁ„o Orientada a Objetos
+# Program√ß√£o Orientada a Objetos
 
 
 #####Aviso!
-Esse È um guia r·pido sobre o paradigma de orientaÁ„o a objetos, ent„o pode (e provavelmente vai) faltar informaÁ„o ou detalhamento em determinados aspectos. No entanto, para aqueles com d˙vidas sobre o uso de orientaÁ„o a objetos em Python ou sobre a orientaÁ„o a objetos em si, esse guia pode ser de alguma ajuda.
-Para um melhor aprendizado sobre programaÁ„o orientada a objetos, cheque as referÍncias.
-#####ProgramaÁ„o Estruturada
-O paradigma de programaÁ„o estruturado enfatisa o uso de subrotinas, laÁos de repetiÁ„o, condicionais e estruturas em bloco na soluÁ„o de problemas.
-Basicamente, as subrotinas s„o escritas e aplicadas a um determinado tipo de informaÁ„o. Por exemplo:
+Esse √© um guia r√°pido sobre o paradigma de orienta√ß√£o a objetos, ent√£o pode (e provavelmente vai) faltar informa√ß√£o ou detalhamento em determinados aspectos. No entanto, para aqueles com d√∫vidas sobre o uso de orienta√ß√£o a objetos em Python ou sobre a orienta√ß√£o a objetos em si, esse guia pode ser de alguma ajuda.
+Para um melhor aprendizado sobre programa√ß√£o orientada a objetos, cheque as refer√™ncias.
+#####Programa√ß√£o Estruturada
+O paradigma de programa√ß√£o estruturado enfatisa o uso de subrotinas, la√ßos de repeti√ß√£o, condicionais e estruturas em bloco na solu√ß√£o de problemas.
+Basicamente, as subrotinas s√£o escritas e aplicadas a um determinado tipo de informa√ß√£o. Por exemplo:
 
 ```python
 def acharletra(string, letra):
@@ -18,33 +18,33 @@ def acharletra(string, letra):
 			cont += 1
 	return -1
 ```
-Dados uma string e um caractere, o cÛdigo acima encontra a primeira ocorrÍncia do caractere na string e retorna o Ìndice dessa ocorrÍncia. Por exemplo:
+Dados uma string e um caractere, o c√≥digo acima encontra a primeira ocorr√™ncia do caractere na string e retorna o √≠ndice dessa ocorr√™ncia. Por exemplo:
 
 ```python
-st = "Isac È lindo"
-print(acharletra(st, 'È'))
+st = "Isac √© lindo"
+print(acharletra(st, '√©'))
 >>> 5
 ```
 
-Apesar de ser uma funÁ„o ˙til, podemos observar que ela n„o term utilidade para, por exemplo, um objeto n„o iter·vel, como um inteiro, um float, um booleano...
-Se imaginarmos os tipos de dados como objetos palp·veis da vida real, temos que o controle das funcionalidades desses objetos est„o sempre separados deles. … como ter, por exemplo, um *microondas* e, separadamente, um bot„o ou interrupetor que o liga, mas que n„o faz parte do *microondas*.
-A programaÁ„o orientada a objetos tenta aproximar a programaÁ„o da vida real nesse aspecto.
-#####ProgramaÁ„o Orientada a Objetos
-Na programaÁ„o orientada a objetos, as funÁıes que os objetos podem cumprir est„o acopladas a eles, s„o chamadas de mÈtodos.
-No exemplo anterior, por exemplo, uma vari·vel do tipo *microondas* teria um mÈtodo respons·vel pelo seu ligamento, outro mÈtodo respons·vel pelo desligamento, outro respons·vel pelo controle do contador, da potÍncia... e assim sucessivamente. Na programaÁ„o orientada a objetos, as funcionalidades dos tipos de objetos s„o seus mÈtodos.
-Assim como funcionalidades, objetos da vida real tambÈm possuem caracterÌsticas, podendo essas serem, ou n„o, mut·veis. Um objeto do tipo microondas, por exemplo, poderia ter as caracterÌticas volume, peso, capacidade... em programaÁ„o orientada a objetos, essas caracterÌsticas tambÈm est„o acopladas ao objeto e s„o chamadas de atributos.
+Apesar de ser uma fun√ß√£o √∫til, podemos observar que ela n√£o term utilidade para, por exemplo, um objeto n√£o iter√°vel, como um inteiro, um float, um booleano...
+Se imaginarmos os tipos de dados como objetos palp√°veis da vida real, temos que o controle das funcionalidades desses objetos est√£o sempre separados deles. √â como ter, por exemplo, um *microondas* e, separadamente, um bot√£o ou interrupetor que o liga, mas que n√£o faz parte do *microondas*.
+A programa√ß√£o orientada a objetos tenta aproximar a programa√ß√£o da vida real nesse aspecto.
+#####Programa√ß√£o Orientada a Objetos
+Na programa√ß√£o orientada a objetos, as fun√ß√µes que os objetos podem cumprir est√£o acopladas a eles, s√£o chamadas de m√©todos.
+No exemplo anterior, por exemplo, uma vari√°vel do tipo *microondas* teria um m√©todo respons√°vel pelo seu ligamento, outro m√©todo respons√°vel pelo desligamento, outro respons√°vel pelo controle do contador, da pot√™ncia... e assim sucessivamente. Na programa√ß√£o orientada a objetos, as funcionalidades dos tipos de objetos s√£o seus m√©todos.
+Assim como funcionalidades, objetos da vida real tamb√©m possuem caracter√≠sticas, podendo essas serem, ou n√£o, mut√°veis. Um objeto do tipo microondas, por exemplo, poderia ter as caracter√≠ticas volume, peso, capacidade... em programa√ß√£o orientada a objetos, essas caracter√≠sticas tamb√©m est√£o acopladas ao objeto e s√£o chamadas de atributos.
 
-#####CaracterÌsticas da POO
-As caracterÌsticas principais da programaÁ„o orientada a objetos s„o a **AbstraÁ„o**, **HeranÁa**, **Polimorfismo** e **Encapsulamento**.
+#####Caracter√≠sticas da POO
+As caracter√≠sticas principais da programa√ß√£o orientada a objetos s√£o a **Abstra√ß√£o**, **Heran√ßa**, **Polimorfismo** e **Encapsulamento**.
 
-**AbstraÁ„o**:… utilizada para a definiÁ„o de entidades do mundo real. Sendo onde s„o criadas as classes. Essas entidades s„o consideradas tudo que È real, tendo como consideraÁ„o as suas caracterÌsticas e aÁıes.
-Em Python, a palavra _class_ È reservada a criaÁ„o de Classes (objetos).
+**Abstra√ß√£o**:√â utilizada para a defini√ß√£o de entidades do mundo real. Sendo onde s√£o criadas as classes. Essas entidades s√£o consideradas tudo que √© real, tendo como considera√ß√£o as suas caracter√≠sticas e a√ß√µes.
+Em Python, a palavra _class_ √© reservada a cria√ß√£o de Classes (objetos).
 
-| Entidade | CaracterÌsticas | AÁıes |
+| Entidade | Caracter√≠sticas | A√ß√µes |
 |:--------|:---------------|:-----|
 | carro   | tamanho, cor, peso, altura | acelerar, parar, ligar, dirigir |
-| elevador | tamanho, peso m·ximo | subir, descer, escolher andar |
-| conta banc·ria | saldo, limite, n˙mero | depositar, sacar, ver extrato |
+| elevador | tamanho, peso m√°ximo | subir, descer, escolher andar |
+| conta banc√°ria | saldo, limite, n√∫mero | depositar, sacar, ver extrato |
 
 
 ```python
@@ -58,37 +58,38 @@ class Conta:
 		if self.saldo + valor < self.lim:
 			self.saldo += valor
 		else:
-			print("Sua conta n„o tem limite suficiente")
+			print("Sua conta n√£o tem limite suficiente")
 	
 	def sacar(self, valor):
 		if self.saldo >= valor:
 			self.saldo -= valor
 		else:
-			print("VocÍ n„o tem saldo suficiente")
+			print("Voc√™ n√£o tem saldo suficiente")
 	
 	def ver_extrato(self):
 		print(self.saldo)
 ```
 
-Por exemplo, acima, a abstraÁ„o do objeto Conta Banc·ria.
+Por exemplo, acima, a abstra√ß√£o do objeto Conta Banc√°ria.
 
-**HeranÁa**: O significado de heranÁa È similar ao significado usado no mundo real, onde filhos herdam certas caracterÌsticas dos pais. Em programaÁ„o orientada a objetos, um objeto pode herdar atributos e mÈtodos de um outro objeto, sendo a classe herdeira chamada subclasse e a classe pai chamada superclasse.
-Uma das grandes vantagens da heranÁa È a reutilizaÁ„o de cÛdigo, ideal para quando h· classes que compartilham de um mesmo atributo ou mÈtodo.
+**Heran√ßa**: O significado de heran√ßa √© similar ao significado usado no mundo real, onde filhos herdam certas caracter√≠sticas dos pais. Em programa√ß√£o orientada a objetos, um objeto pode herdar atributos e m√©todos de um outro objeto, sendo a classe herdeira chamada subclasse e a classe pai chamada superclasse.
+Uma das grandes vantagens da heran√ßa √© a reutiliza√ß√£o de c√≥digo, ideal para quando h√° classes que compartilham de um mesmo atributo ou m√©todo.
 
 ![Hierarquia de Classes](https://img-21.ccm2.net/TFkixX1LWid1t6x1h3AancR9t-I=/56fc4b0ee402409cad1d4294085ab1f7/ccm-encyclopedia/poo-images-animaux2.gif)
-######No esquema de classe acima, Animal È a superclasse da qual HerbÌvoro e CarnÌvoro herdam caracterÌsticas. A classe herbivoro herda caracterÌsticas de ambas, HerbÌvoro e CarnÌvoro.
 
-Em Python 3, todos os objetos herdam caracterÌsticas da classe built-in object.
+######No esquema de classe acima, Animal √© a superclasse da qual Herb√≠voro e Carn√≠voro herdam caracter√≠sticas. A classe herbivoro herda caracter√≠sticas de ambas, Herb√≠voro e Carn√≠voro.
 
-**Polimorfismo**: Polimorfismo est· relacionado com heranÁa, de modo que representa a possibilidade de sobrescritura de mÈtodos e atributos.
-Duas classes distintas podem ter mÈtodos que compartilham o mesmo nome, mas que funcionam de maneira diferente, ou possuem par‚metros diferentes.
+Em Python 3, todos os objetos herdam caracter√≠sticas da classe built-in object.
 
-**Encapsulamento**: … a ideia de esconder do usu·rio determinadas ideias ou detalhes internos, tornando partes do sistema o mais independente possÌvel. Imagine, por exemplo, um controle remoto de televis„o. Quando um usu·rio assistindo TV pressiona o bot„o de mudanÁa de canal, n„o importa para o usu·rio o processo que faz com que a televis„o troque de canal, apenas que ela execute a sua funÁ„o com sucesso. Esse È um exemplo de encapsulamento.
+**Polimorfismo**: Polimorfismo est√° relacionado com heran√ßa, de modo que representa a possibilidade de sobrescritura de m√©todos e atributos.
+Duas classes distintas podem ter m√©todos que compartilham o mesmo nome, mas que funcionam de maneira diferente, ou possuem par√¢metros diferentes.
 
-#Objetos em Python - Guia Rel‚mpago
+**Encapsulamento**: √â a ideia de esconder do usu√°rio determinadas ideias ou detalhes internos, tornando partes do sistema o mais independente poss√≠vel. Imagine, por exemplo, um controle remoto de televis√£o. Quando um usu√°rio assistindo TV pressiona o bot√£o de mudan√ßa de canal, n√£o importa para o usu√°rio o processo que faz com que a televis√£o troque de canal, apenas que ela execute a sua fun√ß√£o com sucesso. Esse √© um exemplo de encapsulamento.
+
+#Objetos em Python - Guia Rel√¢mpago
 
 Para declarar um novo objeto em Python, usa-se a palavra reservada _Class_ seguida pelo nome da classe.
-Caso a classe que vocÍ est· declarando herde caracterÌsticas de uma ou mais classes j· existentes, apÛs declarar o nome da classe, entre parÍntesis, vocÍ deve declarar as classes da qual ela herda caracterÌsticas.
+Caso a classe que voc√™ est√° declarando herde caracter√≠sticas de uma ou mais classes j√° existentes, ap√≥s declarar o nome da classe, entre par√™ntesis, voc√™ deve declarar as classes da qual ela herda caracter√≠sticas.
 
 ```python
 class Coisa():
@@ -99,10 +100,10 @@ Ou ainda:
 class OutraCoisa(Coisa):
 ```
 
-A primeira classe È uma superclasse, n„o herda caracterÌsticas de nenhuma outra classe. J· a classe OutraCoisa herda caracterÌsticas da classe Coisa, sendo ent„o uma subclasse desta.
+A primeira classe √© uma superclasse, n√£o herda caracter√≠sticas de nenhuma outra classe. J√° a classe OutraCoisa herda caracter√≠sticas da classe Coisa, sendo ent√£o uma subclasse desta.
 
-O momento de instanciaÁ„o de uma vari·vel È o momento em que a vari·vel passa a existir. Se essa vari·vel for um objeto, essa instanciaÁ„o acontece atravÈs de um mÈtodo especial (dunder methods, magic methods). MÈtodos especiais s„o mÈtodos com caracterÌsticas especificas de Python, eles s„o marcados por dois underlines antes e depois do nome.
-O mÈtodo especial que controla o momento de instanciaÁ„o de uma vari·vel È o init.
+O momento de instancia√ß√£o de uma vari√°vel √© o momento em que a vari√°vel passa a existir. Se essa vari√°vel for um objeto, essa instancia√ß√£o acontece atrav√©s de um m√©todo especial (dunder methods, magic methods). M√©todos especiais s√£o m√©todos com caracter√≠sticas especificas de Python, eles s√£o marcados por dois underlines antes e depois do nome.
+O m√©todo especial que controla o momento de instancia√ß√£o de uma vari√°vel √© o init.
 
 ```python
 class Funcionario():
