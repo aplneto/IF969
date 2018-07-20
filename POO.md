@@ -86,7 +86,7 @@ Duas classes distintas podem ter métodos que compartilham o mesmo nome, mas que
 
 **Encapsulamento**: É a ideia de esconder do usuário determinadas ideias ou detalhes internos, tornando partes do sistema o mais independente possível. Imagine, por exemplo, um controle remoto de televisão. Quando um usuário assistindo TV pressiona o botão de mudança de canal, não importa para o usuário o processo que faz com que a televisão troque de canal, apenas que ela execute a sua função com sucesso. Esse é um exemplo de encapsulamento.
 
-#Objetos em Python - Guia Relâmpago
+# Objetos em Python - Guia Relâmpago
 
 Para declarar um novo objeto em Python, usa-se a palavra reservada _Class_ seguida pelo nome da classe.
 Caso a classe que você está declarando herde características de uma ou mais classes já existentes, após declarar o nome da classe, entre parêntesis, você deve declarar as classes da qual ela herda características.
