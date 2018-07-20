@@ -1,6 +1,6 @@
 # Algoritmos-IF969
 
-[![UFPE](https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Bras%C3%A3o_da_UFPE.png/220px-Bras%C3%A3o_da_UFPE.png)](http://www2.cin.ufpe.br/site/index.php)
+[![UFPE](https://github.com/aplneto/IF969/blob/master/.idv/ufpelogo.png?raw=true)](https://www.ufpe.br/)[![CIn](https://github.com/aplneto/IF969/blob/master/.idv/cinlogo-32.png?raw=true)](http://www2.cin.ufpe.br/site/index.php)
 
 Algoritmos de ordenação, estruturas de dados, Grafos e outros algoritmos estudados na cadeira IF969 (Algoritmos e Estrturas de Dados). CIn - UFPE (2018.1)
 
