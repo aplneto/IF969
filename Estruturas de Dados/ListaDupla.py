@@ -48,7 +48,7 @@ class _No():
         '''
         Método para exibição de valor válido de um nodo.
         '''
-        return self.valor.__repr__()
+        return "_No({})".format(self.valor.__repr__())
     
     def __str__(self):
         '''
@@ -299,13 +299,15 @@ class Lista():
         return "[{}]".format(string)
     
     def __iter__(self):
-        self.__atual = self.primeiro.proximo
-        return self
-    
-    def __next__(self):
-        if self.__atual is None:
+        '''
+        Objetos geradores também são iteráveis e, por isso, podem servir
+        como iteradores de uma classe, uma vez que o método next é inerente
+        a um gerador.
+        '''
+        def _ponteiro(p):
+            while p is not None:
+                yield p.valor
+                p = p.proximo
             raise StopIteration
-        else:
-            item = self.__atual.valor
-            self.__atual = self.__atual.proximo
-            return item
+        
+        return _ponteiro(self.primeiro.proximo)

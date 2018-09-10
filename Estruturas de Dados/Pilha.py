@@ -32,7 +32,7 @@ class _No:
         self.proximo = proximo
     
     def __repr__(self):
-        return self.valor.__repr__()
+        return "_No({})".format(self.valor.__repr__())
     
     def __str__(self):
         return self.valor.__str__()
@@ -128,7 +128,7 @@ class Pilha:
                 atual = atual.proximo
         return atual.valor
     
-    def __repr__(self):
+    def __str__(self):
         atual = self.primeiro
         msg = ''
         while atual is not None:
@@ -137,21 +137,19 @@ class Pilha:
             atual = atual.proximo
         return "[{}]".format(msg)
     
-    def __str__(self):
-        '''
-        O método __str__ da pilha exibe apenas o nó no topo da fila, o próximo
-        a ser removido.
-        '''
-        return self.primeiro.__str__()
+    def __repr__(self):
+        atual = self.primeiro
+        msg = ''
+        while atual is not None:
+            if msg: msg = ', '+msg
+            msg = repr(atual.valor) + msg
+            atual = atual.proximo
+        return "Pilha([{0}])".format(msg)
     
     def __iter__(self):
-        self.__atual = self.primeiro
-        return self
-    
-    def __next__(self):
-        if self.__atual is None:
+        def _ponteiro(n):
+            while n is not None:
+                yield n.valor
+                n = n.proximo
             raise StopIteration
-        else:
-            item = self.__atual.valor
-            self.__atual = self.__atual.proximo
-            return item
+        return _ponteiro(self.primeiro)

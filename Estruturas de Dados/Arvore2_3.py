@@ -106,9 +106,6 @@ class ArvoreBalanceada(object):
             if len(no.chave) > 1: yield no.chave[1]
             if len(no.prox) > 2: yield from _ponteiro(no.prox[2])
         return _ponteiro(self.raiz)
-    
-    def __repr__(self):
-        return "{"+self.em_ordem(self.raiz)+"}"
 
 class _No(object):
     '''
@@ -218,7 +215,6 @@ class _No(object):
             if self in self.antecessor.prox:
                 self.antecessor.prox.remove(self)
             self.antecessor.__unir(self)
-            
                 
     def __getattr__(self, attr):
         if attr == "esquerda":
@@ -244,9 +240,6 @@ class _No(object):
         else:
             self.chave[0] < outro_no.chave[0]
     
-    def __repr__(self):
-        return "({})".format(self.__texto())
-    
     def __str__(self):
         return self.__texto()
     
@@ -259,8 +252,3 @@ class _No(object):
             if _str: _str += ', '
             _str += "{}: {}".format(chave.__repr__(), valor.__repr__())
         return _str
-
-numbers = ['um', 'dois', 'tres', 'quatro', 'cinco', 'seis']
-a = ArvoreBalanceada()
-for n in range(len(numbers)):
-    a.inserir(n+1, numbers[n])

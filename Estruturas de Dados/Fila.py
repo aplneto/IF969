@@ -34,7 +34,7 @@ class _No:
         return self.valor.__str__()
     
     def __repr__(self):
-        return self.valor.__repr__()
+        return "_No({})".format(self.valor.__repr__())
 
 class Fila:
     '''

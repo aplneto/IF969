@@ -191,9 +191,6 @@ class _Node():
             texto += '"{}"({})'.format(dupla[0], dupla[1])
         return texto
     
-    def __repr__(self):
-        return "Arvore-Trie([{}])".format(self.__str__())
-    
     def __texto(self, atual = "", palavras = []):
         for i in range(53):
             if not self.letras[i] is None:

@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
+'''
 Universidade Federal de Pernambuco (UFPE) (http://www.ufpe.br)
 Centro de Informática (CIn) (http://www.cin.ufpe.br)
 Bacharelado em Sistemas de Informacao
@@ -11,100 +10,131 @@ Email:      apln2@cin.ufpe.br
 
 Descrição: Código de Classe Auxiliar Polinômios
 """
+'''
+import numpy
 
-class Polinomio():
-    '''
-    Classe auxiliar Polinomio
-    '''
-    def __init__(self, grau, *coeficientes):
+class Polinomio:
+    def __init__(self, *coeficientes, dtype = int):
         '''
-        Classe polinomio recebe como parâmetros o grau do monomio de maior grau
-        e os coeficientes de todos os monomios.
-        A exemplo, o polinômio 2x²+3x-1 seria instânciado da seguinte forma:
-            Polinomio = (2, 2, 3, -1) ou ainda Polinomio = (2, [2, 3, -1])
+        Método construtor, recebe como parâmetros os coeficientes dos monômios
+        que compõem o polinômio, ignorando monômios de coeficiente 0 com grau
+        maior que o primeiro monômio de coeficiente não nulo.
         '''
-        self.grau = grau
-        self.coeficientes = list()
-        aux = 0
-        if len(coeficientes) == 1 and type(coeficientes[0]) == list:
-            self.coeficientes = coeficientes[0]
-        else:
-            for coeficiente in coeficientes:
-                self.coeficientes.append(coeficiente)
-                aux += 1
-                if aux >= (self.grau+1):
-                    break
-        while len(self.coeficientes) > 0 and self.coeficientes[0] == 0:
-            aux = self.coeficientes.pop(0)
-            self.grau -= 1
-            del aux
-            
-    def __derivada(self):
+        # Primeiro precisamos eliminar os zeros a esquerda do Polinômio, caso
+        # exista algum.
+        i = 0
+        for n in coeficientes:
+            if n == 0: i += 1   
+            else: break
+        
+        # Depois de encontrarmos a parcela importante dos parâmetros, é
+        # necessário criar um vetor para armazenar os coeficientes.
+        # Lembrando que, se depois da limpeza do polinômio não existirem mais
+        # coeficientes, teremos ainda a constante 0.
+        self.coeficientes = numpy.asarray(coeficientes[i:], dtype)\
+        if i < len(coeficientes) else numpy.zeros(1, dtype)
+        self.grau = len(self.coeficientes)-1
+    
+    def derivada(self):
         '''
-        Retorna o polinomio correspondente a própria derivada
+        Método que retorna um polinômio equivalente a derivada do próprio
+        objeto.
         '''
-        aux = 0
-        coeficientes = list()
-        for coeficiente in self.coeficientes:
-            coeficientes.append(coeficiente*(self.grau - aux))
-            aux +=1
-        return Polinomio(self.grau-1, *coeficientes)
+        deriv = numpy.ndarray(self.grau, float)
+        i = 0
+        while i < self.grau:
+            # Não é necessário checar a derivada do último coeficiente, visto
+            # que é uma constante e a derivada de uma constante é sempre zero.
+            deriv[i] = self.coeficientes[i]*(self.grau-i)
+            i+=1
+        return Polinomio(*deriv)
+    
+    def newton_raphson(self, x0, tol):
+        '''
+        Método de Newton-Raphson de estimativa da raiz de um polinômio dados os
+        paraâmetros:
+        :param x0: valor aproximado da raiz do polinômio
+        :param tol: coeficiente de tolerância
+        '''
+        x = x0
+        while abs(self(x)) > tol:
+            x -= self(x)/self.derivada()(x)
+        return x
     
     def __call__(self, x):
         '''
-        Retorna o valor de F para o parametro x
+        Retorna o valor da função de aplicada ao parâmetro x.
         '''
-        resultado = 0.0
-        aux = 0
-        for coeficiente in self.coeficientes:
-            resultado += coeficiente*(x**(self.grau-aux))
-            aux += 1
-        return resultado
-            
+        # Iniciamos o valor da função como 0 e, a medida que vamos calculando o
+        # valor de cada monômio, vamos incrementando o resultado ao valor de fx.
+        fx = 0
+        i = self.grau
+        for valor in self.coeficientes:
+            if i == 0:  #x^0 = 1
+                fx += valor
+            elif valor != 0: # Coeficiente zero não afeta o resultado.
+                fx += valor*x**i
+            i -= 1
+        return fx
+                
     def __repr__(self):
-        func = ''
-        aux = 0
+        '''
+        Retorna uma representação válida do objeto.
+        '''
+        _str = ""
         for c in self.coeficientes:
-            if func and c>0:
-                func += '+'
-            if c and aux < self.grau-1:
-                func += '{0}x^{1}'.format(c if c!=1 else '', self.grau-aux)
-            elif c and aux == self.grau-1:
-                func += '{0}x'.format(c if c!=1 else '')
-            elif c:
-                func+= '{}'.format(c)
-            aux += 1
-        return func and func or '0'
+            if _str: _str += ', '
+            _str += str(c)
+        return "Polinomio({})".format(_str)
     
     def __str__(self):
-        return "F(x) = {}".format(self.__repr__())
+        '''
+        Retorna uma representação em string do objeto.
+        '''
+        # O objetivo da formatação da string abaixo é representar o polinomio de
+        # forma o mais user friendly possível.
+        aux = 0
+        fx = ''
+        while aux < len(self.coeficientes):
+            c = x = e = ''
+            mon = '{0}{1}{2}'
+            if self.grau > aux: x = 'x'
+            if self.grau - aux > 1: e = '^'+str(self.grau-aux)
+            if self.coeficientes[aux] < 0: c = str(self.coeficientes[aux])
+            elif self.coeficientes[aux] > 0:
+                if fx:
+                    c += '+'
+                if (self.coeficientes[aux] > 1 and x) or (self.grau == aux):
+                    c += str(self.coeficientes[aux])
+            else:
+                c = x = e = ''
+            fx += mon.format(c, x, e)
+            aux += 1
+        return fx
     
-    def __getattr__(self, key):
-        if key == 'derivada':
-            return self.__derivada()
-
-    def raiz(self, x0, tol):
+    def __getitem__(self, indice):
         '''
-        Encontra uma aproximação para a raiz do polinômio a partir do método de
-        Newton-Raphson
-        x0: valor inicial positivo aproximado da raiz
-        tol: tolerância, valor máximo para x0
+        Método que controla a indexação do objeto.
         '''
-        while abs(self(x0)) > tol:
-            x0 -= self(x0)/self.derivada(x0)
-        return x0
-
-def newton_raphson(lista_coef, tol, x0):
-    '''
-    Método de Newton-Raphson que conta as iterações
-    lista_coef: lista dos coeficientes do maior grau ao menor
-    tol: valor minimo aceitável de f(x) (tol >0)
-    x0: valor inicial aproximado da raiz
-    '''
-    f = Polinomio(len(lista_coef)-1, *lista_coef)
-    itr = 0
-    x = x0
-    while abs(f(x)) > tol:
-        x -= f(x)/f.derivada(x)
-        itr += 1
-    print("x = {0}\nEm {1} iterações.".format(x, itr))
+        # Os polinômios estão ordenados do maior grau para o menor grau, logo
+        # o polinomio de maior grau tem índice 0.
+        if indice > self.grau:
+            raise IndexError (indice)
+        # Além disso, um polinômio de grau n é formado por n+1 monômios, pois a
+        # constante é um polinômio de grau 0.
+        return Polinomio(self.coeficientes[self.grau - indice],
+                         *[0 for n in range(indice)])
+    
+    def __iter__(self):
+        return self._Ponteiro(self)
+    
+    class _Ponteiro:
+        def __init__(self, p):
+            self.pos = iter(p.coeficientes)
+            self.g = p.grau+1
+        
+        def __next__(self):
+            self.g -= 1
+            mon = next(self.pos)
+            return Polinomio(mon, *[0 for n in range (self.g)],
+                             dtype = type(mon))

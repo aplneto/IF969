@@ -284,9 +284,6 @@ class Arvore:
     def __str__(self):
         return "{"+self.pre_ordem(self.raiz)+"}"
     
-    def __repr__(self):
-        return "{"+self.em_ordem(self.raiz)+"}"
-    
     def __delitem__(self, chave):
         aux = self.remover(chave)
         del aux

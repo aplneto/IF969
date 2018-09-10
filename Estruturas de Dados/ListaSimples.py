@@ -43,7 +43,7 @@ class _No():
         self.prox = prox
     
     def __repr__(self):
-        return self.item.__repr__()
+        return "_No({})".format(self.item.__repr__())
     
     def __str__(self):
         return self.item.__str__()
