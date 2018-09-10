@@ -45,6 +45,9 @@ class Fila:
         self.primeiro = self.ultimo = _No(None)
         self.lim = kwargs.get("lim", float('inf'))
         self.__tam = 0
+        if iteravel is not None:
+            for valor in iteravel:
+                self.enqueue(valor)
     
     def enqueue(self, valor):
         '''
@@ -58,7 +61,7 @@ class Fila:
         else:
             raise ValueError ("capacidade máxima da fila alcançada")
     
-    def dequeue(self, valor):
+    def dequeue(self):
         '''
         O processo de desenfileirar acontece sempre no ínicio da lista,
         respeitando a ordem de entrada dos valores.
@@ -76,17 +79,17 @@ class Fila:
     
     # Métodos Especiais
     
-    def __repr__(self):
+    def __str__(self):
         no = self.primeiro.proximo
         msg = ''
         while no is not None:
             if msg: msg += ', '
-            msg += no.__repr__()
+            msg += no.valor.__repr__()
             no = no.proximo
         return '[{}]'.format(msg)
     
-    def __str__(self):
-        return self.__repr__()
+    def __repr__(self):
+        return "Fila({0})".format(self.__str__())
     
     def __getitem__(self, i):
         cont = -1

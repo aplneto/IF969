@@ -282,11 +282,8 @@ class Lista():
     
     def __setitem__(self, i, v):
         self.modificar(i, v)
-        
-    def __str__(self):
-        return self.__repr__()
     
-    def __repr__(self):
+    def __str__(self):
         string = ''
         anterior = self.primeiro
         atual = anterior.proximo
@@ -297,6 +294,9 @@ class Lista():
             anterior = atual
             atual = anterior.proximo
         return "[{}]".format(string)
+    
+    def __repr__(self):
+        return "Lista({0})".format(self.__str__())
     
     def __iter__(self):
         '''

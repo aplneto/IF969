@@ -76,8 +76,6 @@ class Trie():
     def __str__(self):
         return self.raiz.__str__()
     
-    def __repr__(self):
-        return self.raiz.__repr__()
 
 class _Node():
     '''

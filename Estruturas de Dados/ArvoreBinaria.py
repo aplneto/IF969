@@ -54,9 +54,6 @@ class _No:
     
     def __str__(self):
         return "{}:{}".format(self.chave.__repr__(), self.valor.__repr__())
-    
-    def __repr__(self):
-        return self.__str__()
 
 class Arvore:
     '''

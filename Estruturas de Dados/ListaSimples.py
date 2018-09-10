@@ -288,7 +288,7 @@ class Lista():
         ou variável no console e recebe como output uma string contendo uma
         representação do valor do objeto.
         '''
-        return self.__str__()
+        return "Lista({0})".format(self.__str__())
     
     def __getitem__(self, i):
         '''
