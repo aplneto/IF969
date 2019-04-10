@@ -85,9 +85,11 @@ https://github.com/aplneto/IF969/wiki/Python).
 
 ## Links Didáticos
 
-[VisuAlgo](https://visualgo.net/en "Visualize Algoritmos e Estruturas de Dados através de Animações")
+[Documentação](https://docs.python.org/3/)
 
 [PEP-8]
+
+[VisuAlgo](https://visualgo.net/en "Visualize Algoritmos e Estruturas de Dados através de Animações")
 
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
