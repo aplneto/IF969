@@ -65,6 +65,7 @@ https://github.com/aplneto/IF969/wiki/Python).
 ## Monitores
 
 Antônio Paulino
+
 [![apln2][email-icon]](mailto:apln2@cin.ufpe.br)[![aplneto][github-icon]](https://github.com/aplneto)
 
 Kessia Nepomuceno
