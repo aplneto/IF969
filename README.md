@@ -41,7 +41,7 @@ https://github.com/aplneto/IF969/wiki/Python).
     - Árvore Rubro-Negra
     - Árvore 2-3
     - [Árvore Trie](../master/Estruturas%20de%20Dados/Arvores/ArvoreTrie.py)
-    - [Árvore Patrícia (Radix Tree)](../master/Estruturas%20de%20Dados/Arvores/RadixTree.py "Incompleta")
+    - [~Árvore Patrícia (Radix Tree)~](../master/Estruturas%20de%20Dados/Arvores/RadixTree.py "Incompleta")
 - Hash
 - Heaps
     - Heap Máximo
