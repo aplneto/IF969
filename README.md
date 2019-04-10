@@ -68,6 +68,12 @@ https://github.com/aplneto/IF969/wiki/Python).
 - Introdução
 - P vs. NP
 
+## Links Didáticos
+
+[VisuAlgo](https://visualgo.net/en "Visualize Algoritmos e Estruturas de Dados através de Animações")
+
+
+
 ## Monitores
 
 Antônio Paulino
@@ -105,10 +111,6 @@ Roberto Nunes
 Tacísio Monteiro
 
 [![tcm][email-icon]](mailto:tcm@cin.ufpe.br)
-
-## Links Didáticos
-
-[VisuAlgo](https://visualgo.net/en "Visualize Algoritmos e Estruturas de Dados através de Animações")
 
 <!-- links -->
 
