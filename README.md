@@ -7,8 +7,6 @@ Disciplina ministrada usando a linguagem Python.
 
 Professor: [Fernando Neto](mailto:fmpn2@cin.ufpe.br)
 
-![Python](https://img.icons8.com/color/32/000000/python.png)
-
 ## Instalando
 
 Se tiver dúvidas de como instalar o Python ou Alguma IDE usada na disciplina, siga
