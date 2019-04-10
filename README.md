@@ -17,17 +17,17 @@ https://github.com/aplneto/IF969/wiki/Python).
 
 ### Estruturas de Dados
 - Estruturas Lineares
-    - Listas Encadeadas
-    - Listas Duplamente Encadeadas
-    - Pilhas
-    - Filas
+    - [Listas Encadeadas](../master/Estruturas%20de%20Dados/Lineares/ListaSimples.py)
+    - [Listas Duplamente Encadeadas](../master/Estruturas%20de%20Dados/Lineares/ListaDupla.py)
+    - [Pilhas](../master/Estruturas%20de%20Dados/Lineares/Pilha.py)
+    - [Filas](../master/Estruturas%20de%20Dados/Lineares/Fila.py)
 - Árvores
-    - Árvore Binária
+    - [Árvore Binária](../master/Estruturas%20de%20Dados/Arvores/ArvoreBinaria.py)
     - Árvore Binária Balanceada (AVL)
     - Árvore Rubro-Negra
     - Árvore 2-3
-    - Árvore Trie
-    - Árvore Patrícia
+    - [Árvore Trie](../master/Estruturas%20de%20Dados/Arvores/ArvoreTrie.py)
+    - [Árvore Patrícia (Radix Tree)](../master/Estruturas%20de%20Dados/Arvores/RadixTree.py "Incompleta")
 - Hash
 - Heaps
     - Heap Máximo
@@ -48,6 +48,9 @@ https://github.com/aplneto/IF969/wiki/Python).
 - Ordenação Extrena
 
 ### Grafos
+- Tipos Abstrados de Dados
+    - Lista de Adjacências
+    - [Matriz de Adjacências](..Grafos/GrafoMatriz.py)
 - Caminhamento
     - Busca em Largura
     - Busca em Profundidade
@@ -100,6 +103,10 @@ Roberto Nunes
 Tacísio Monteiro
 
 [![tcm][email-icon]](mailto:tcm@cin.ufpe.br)
+
+## Links Didáticos
+
+[VisuAlgo](https://visualgo.net/en "Visualize Algoritmos e Estruturas de Dados através de Animações")
 
 <!-- links -->
 
