@@ -1,3 +1,5 @@
+![Python](https://img.shields.io/pypi/pyversions/numpy.svg?style=plastic)
+
 # Algoritmos-IF969
 
 Repositório da disciplina IF-969 Algoritmos e Estruturas de Dados. CIn, UFPE.
