@@ -103,7 +103,7 @@ Tacísio Monteiro
 
 <!-- links -->
 
-[ord elementar]: https://github.com/aplneto/IF969/blob/master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py
+[ord elementar]: ../master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py "Ordenação Elementar"
 
 <!-- imagens (32px para ícones) -->
 
