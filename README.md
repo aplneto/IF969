@@ -2,7 +2,8 @@
 
 Repositório da disciplina IF-969 Algoritmos e Estruturas de Dados. CIn, UFPE.
 Disciplina ministrada usando a linguagem Python.
-Professor: Fernando Neto
+
+Professor: [Fernando Neto](mailto:fmpn2@cin.ufpe.br)
 
 ![Python](https://img.icons8.com/color/32/000000/python.png)
 
