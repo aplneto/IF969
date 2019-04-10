@@ -7,13 +7,27 @@ Disciplina ministrada usando a linguagem Python.
 
 Professor: [Fernando Neto](mailto:fmpn2@cin.ufpe.br)
 
+## Index
+
+- [Instalando](#instalando)
+
+- [Conteúdo](#conteúdo)
+    - [Estruturas de Dados](#estruturas-de-dados)
+    - [Algoritmos de Ordenação](#algoritmos-de-ordenação)
+    - [Grafos](#grafos)
+    - [Programação Dinâmica](#programação-dinâmica)
+
+- [Links Didáticos](#links-didáticos)
+
+- [Monitores](#monitores)
+
 ## Instalando
 
 Se tiver dúvidas de como instalar o Python ou Alguma IDE usada na disciplina, siga
 os passos no tutorial de instalação do [Python](
 https://github.com/aplneto/IF969/wiki/Python).
 
-## Index
+## Conteúdo
 
 ### Estruturas de Dados
 - Estruturas Lineares
@@ -70,6 +84,7 @@ https://github.com/aplneto/IF969/wiki/Python).
 
 [VisuAlgo](https://visualgo.net/en "Visualize Algoritmos e Estruturas de Dados através de Animações")
 
+[PEP-8]
 
 
 ## Monitores
@@ -113,6 +128,7 @@ Tacísio Monteiro
 <!-- links -->
 
 [ord elementar]: ../master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py "Ordenação Elementar"
+[pep-8]: https://www.python.org/dev/peps/pep-0008/ "Guia de Estilo para código Python"
 
 <!-- imagens (32px para ícones) -->
 
