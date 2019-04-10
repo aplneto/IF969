@@ -1,44 +1,109 @@
 # Algoritmos-IF969
 
-[![UFPE](https://github.com/aplneto/IF969/blob/master/.idv/ufpelogo.png?raw=true)](https://www.ufpe.br/) [![CIn](https://github.com/aplneto/IF969/blob/master/.idv/cinlogo-32.png?raw=true)](http://www2.cin.ufpe.br/site/index.php) [![GitHub](https://github.com/aplneto/IF969/blob/master/.idv/ghlogo-32.png?raw=true)](https://github.com/aplneto) [![Grupo no Facebook](https://github.com/aplneto/IF969/blob/master/.idv/fblogo-32.png?raw=true)](https://www.facebook.com/groups/361516411017797/) [![Twitter](https://github.com/aplneto/IF969/blob/master/.idv/ttlogo-32.png?raw=true)](https://twitter.com/aplneto2)
+Repositório da disciplina IF-969 Algoritmos e Estruturas de Dados. CIn, UFPE.
+Disciplina ministrada usando a linguagem Python.
+Professor: Fernando Neto
 
-Algoritmos de ordenação, estruturas de dados, Grafos e outros algoritmos estudados na cadeira IF969 (Algoritmos e Estrturas de Dados). CIn - UFPE (2018.1)
+![Python](https://img.icons8.com/color/32/000000/python.png)
 
-* Professor: [Renato Vimieiro](mailto:rv2@cin.ufpe.br)
-* Aluno: [Antônio Paulino de Lima Neto](mailto:apln2@cin.ufpe.br)
+## Instalando
 
-### Guia relâmpago de Programação Orientada a Objetos
+Se tiver dúvidas de como instalar o Python ou Alguma IDE usada na disciplina, siga
+os passos no tutorial de instalação do [Python](
+https://github.com/aplneto/IF969/wiki/Python).
+
+## Index
+
 ### Estruturas de Dados
-1. Listas
-    1. [Lista com Encadeamento Simples](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/ListaSimples.py)
-    1. [Lista Duplamente Encadeada](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/ListaDupla.py)
-    1. [Pilha](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/Pilha.py)
-    1. [Fila](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/Fila.py)
-1. Árvores
-    1. [Árvore Binária](https://github.com/aplneto/IF969/blob/master/Estruturas%20de%20Dados/ArvoreBinaria.py)
-    1. Árvore 2-3
-    1. Árvore Binária Rubro-negra
-    1. Árvore Binária Rubro-negra inclinada a direita
-    1. Árvore Trie
-    1. Árvore Patrícia (Radix Tree)
-1. Hash
-1. Heap
+- Estruturas Lineares
+    - Listas Encadeadas
+    - Listas Duplamente Encadeadas
+    - Pilhas
+    - Filas
+- Árvores
+    - Árvore Binária
+    - Árvore Binária Balanceada (AVL)
+    - Árvore Rubro-Negra
+    - Árvore 2-3
+    - Árvore Trie
+    - Árvore Patrícia
+- Hash
+- Heaps
+    - Heap Máximo
+    - Heap Mínimo
 
 ### Algoritmos de Ordenação
-1. [Ordenação Elementar](https://github.com/aplneto/IF969/blob/master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py)
-1. Ordenação Avançada
-    1. Merge Sort
-    1. Merge Sort Bottom-up
-    1. Quick Sort
-    1. Heap Sort
-1. Ordenação por Distribuição
-    1. Contagem
-    1. Radix Sort
-    1. Bucket Sort
-1. Ordenação Parcial
-1. Ordenação Externa
-    1. Merge Sort Externo
-    1. Replacement Selection
+- Ordenação Elementar
+    - [Bubble Sort][ord elementar]
+    - [Selection Sort][ord elementar]
+    - [Insertion Sort][ord elementar]
+- Odenação Avançada
+    - Quick Sort
+    - Merge Sort
+- Ordenação por Distribuição
+
+- Ordenação Parcial
+
+- Ordenação Extrena
 
 ### Grafos
-1. TAD Grafos
+- Caminhamento
+    - Busca em Largura
+    - Busca em Profundidade
+- Árvore Geradora Mínima
+    - Kruskal
+    - Prim
+- Menor Caminho
+    - Floyd Warshall
+    - Djikistra
+
+### Programação Dinâmica
+
+- Introdução
+- P vs. NP
+
+## Monitores
+
+Antônio Paulino
+[![apln2][email-icon]](mailto:apln2@cin.ufpe.br)[![aplneto][github-icon]](https://github.com/aplneto)
+
+Kessia Nepomuceno
+
+[![ktcn][email-icon]](mailto:ktcn@cin.ufpe.br)
+
+Gabriel Ramos Rodrigues
+
+[![grro][email-icon]](maito:grro@cin.ufpe.br)[![brailog][github-icon]](https://github.com/brailog)
+
+Gabriel Cavalcanti de Melo
+
+[![gcm2][email-icon]](mailto:gcm2@cin.ufpe.br)[![GabrielCavalcanti13][github-icon]](https://github.com/GabrielCavalcanti13)
+
+Kayque Lucas Santana dos Santos
+
+[![klss][email-icon]](mailto:klss@cin.ufpe.br)[![KayqueSantos][github-icon]](https://github.com/KayqueSantos)
+
+Isac Tomaz da Silva
+
+[![its][email-icon]](mailto:its@cin.ufpe.br)[![isacits][github-icon]](https://github.com/isacits)
+
+Myllena Alves de Lima
+
+[![mal4][email-icon]](mailto:mal4@cin.ufpe.br)
+
+Roberto Nunes
+
+[![jrvn][email-icon]](mailto:jrvn@cin.ufpe.br)
+
+Tacísio Monteiro
+
+[![tcm][email-icon]](mailto:tcm@cin.ufpe.br)
+
+<!-- links -->
+
+[ord elementar]: https://github.com/aplneto/IF969/blob/master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py
+
+<!-- imagens (32px para ícones) -->
+
+[email-icon]: https://img.icons8.com/color/32/000000/gmail.png
+[github-icon]: https://img.icons8.com/windows/32/000000/github.png
