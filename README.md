@@ -1,5 +1,8 @@
 ![Python](https://img.shields.io/pypi/pyversions/numpy.svg?style=plastic)
 
+[![wiki-icon]](../../wiki "Wiki")
+[![task-icon]](../master/Exercicios "Exercícios")
+
 # Algoritmos-IF969
 
 Repositório da disciplina IF-969 Algoritmos e Estruturas de Dados. CIn, UFPE.
@@ -86,6 +89,8 @@ https://github.com/aplneto/IF969/wiki/Python).
 
 [PEP-8]
 
+[Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
 
 ## Monitores
 
@@ -130,7 +135,10 @@ Tacísio Monteiro
 [ord elementar]: ../master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py "Ordenação Elementar"
 [pep-8]: https://www.python.org/dev/peps/pep-0008/ "Guia de Estilo para código Python"
 
-<!-- imagens (32px para ícones) -->
+<!-- imagens (24px para ícones) -->
 
-[email-icon]: https://img.icons8.com/color/32/000000/gmail.png
-[github-icon]: https://img.icons8.com/windows/32/000000/github.png
+[email-icon]: https://img.icons8.com/color/24/000000/gmail.png
+[github-icon]: https://img.icons8.com/windows/24/000000/github.png
+
+[wiki-icon]: https://img.icons8.com/ios/24/000000/documents-filled.png
+[task-icon]: https://img.icons8.com/material/24/000000/task.png
