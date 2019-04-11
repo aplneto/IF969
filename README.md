@@ -95,54 +95,12 @@ https://github.com/aplneto/IF969/wiki/Python).
 
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-
-## Monitores
-
-Antônio Paulino
-
-[![apln2][email-icon]](mailto:apln2@cin.ufpe.br)[![aplneto][github-icon]](https://github.com/aplneto)
-
-Kessia Nepomuceno
-
-[![ktcn][email-icon]](mailto:ktcn@cin.ufpe.br)
-
-Gabriel Ramos Rodrigues
-
-[![grro][email-icon]](maito:grro@cin.ufpe.br)[![brailog][github-icon]](https://github.com/brailog)
-
-Gabriel Cavalcanti de Melo
-
-[![gcm2][email-icon]](mailto:gcm2@cin.ufpe.br)[![GabrielCavalcanti13][github-icon]](https://github.com/GabrielCavalcanti13)
-
-Kayque Lucas Santana dos Santos
-
-[![klss][email-icon]](mailto:klss@cin.ufpe.br)[![KayqueSantos][github-icon]](https://github.com/KayqueSantos)
-
-Isac Tomaz da Silva
-
-[![its][email-icon]](mailto:its@cin.ufpe.br)[![isacits][github-icon]](https://github.com/isacits)
-
-Myllena Alves de Lima
-
-[![mal4][email-icon]](mailto:mal4@cin.ufpe.br)
-
-Roberto Nunes
-
-[![jrvn][email-icon]](mailto:jrvn@cin.ufpe.br)
-
-Tacísio Monteiro
-
-[![tcm][email-icon]](mailto:tcm@cin.ufpe.br)
-
 <!-- links -->
 
 [ord elementar]: ../master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py "Ordenação Elementar"
 [pep-8]: https://www.python.org/dev/peps/pep-0008/ "Guia de Estilo para código Python"
 [wiki]: ../../wiki "Wiki"
 <!-- imagens (24px para ícones) -->
-
-[email-icon]: https://img.icons8.com/color/24/000000/gmail.png
-[github-icon]: https://img.icons8.com/windows/24/000000/github.png
 
 [wiki-icon]: https://img.icons8.com/ios/24/000000/documents-filled.png
 [task-icon]: https://img.icons8.com/material/24/000000/task.png
