@@ -24,7 +24,7 @@ Já leu a [wiki] do repositório?
 
 - [Links Didáticos](#links-didáticos)
 
-- [Monitores](#monitores)
+- [Monitores](https://github.com/aplneto/IF969/wiki/Contatos)
 
 ## Instalando
 
