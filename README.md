@@ -1,6 +1,6 @@
 ![Python](https://img.shields.io/pypi/pyversions/numpy.svg?style=plastic)
 
-[![wiki-icon]](../../wiki "Wiki")
+[![wiki-icon]][wiki]
 [![task-icon]](../master/Exercicios "Exercícios")
 
 # Algoritmos-IF969
@@ -9,6 +9,8 @@ Repositório da disciplina IF-969 Algoritmos e Estruturas de Dados. CIn, UFPE.
 Disciplina ministrada usando a linguagem Python.
 
 Professor: [Fernando Neto](mailto:fmpn2@cin.ufpe.br)
+
+Já leu a [wiki] do repositório?
 
 ## Index
 
@@ -136,7 +138,7 @@ Tacísio Monteiro
 
 [ord elementar]: ../master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py "Ordenação Elementar"
 [pep-8]: https://www.python.org/dev/peps/pep-0008/ "Guia de Estilo para código Python"
-
+[wiki]: ../../wiki "Wiki"
 <!-- imagens (24px para ícones) -->
 
 [email-icon]: https://img.icons8.com/color/24/000000/gmail.png
