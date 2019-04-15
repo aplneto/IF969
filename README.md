@@ -59,7 +59,7 @@ https://github.com/aplneto/IF969/wiki/Python).
     - [Selection Sort][ord elementar]
     - [Insertion Sort][ord elementar]
 - Odenação Avançada
-    - Quick Sort
+    - [Quick Sort][Quicksort]
     - Merge Sort
 - Ordenação por Distribuição
 
@@ -105,6 +105,7 @@ https://github.com/aplneto/IF969/wiki/Python).
 [HeapMax]: https://github.com/aplneto/IF969/blob/6bd3a795f795e53d2e12e7011888154971bfead5/Estruturas%20de%20Dados/Heap.py#L153
 [HeapMin]: https://github.com/aplneto/IF969/blob/6bd3a795f795e53d2e12e7011888154971bfead5/Estruturas%20de%20Dados/Heap.py#L197
 [Heap Sort]: https://github.com/aplneto/IF969/blob/6bd3a795f795e53d2e12e7011888154971bfead5/Estruturas%20de%20Dados/Heap.py#L75
+[Quicksort]: https://github.com/aplneto/IF969/blob/master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/Quicksort.py
 
 <!-- imagens (24px para ícones) -->
 
