@@ -94,7 +94,7 @@ https://github.com/aplneto/IF969/wiki/Python).
 
 [VisuAlgo](https://visualgo.net/en "Visualize Algoritmos e Estruturas de Dados através de Animações")
 
-[Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+[Python Cheatsheet](https://www.cheatography.com/davechild/cheat-sheets/python/)
 
 <!-- links -->
 
