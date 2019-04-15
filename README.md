@@ -56,8 +56,8 @@ https://github.com/aplneto/IF969/wiki/Python).
 ### Algoritmos de Ordenação
 - Ordenação Elementar
     - [Bubble Sort](../master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py#L19 "Bubble Sort")
-    - [Selection Sort](../master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py#30 "Selection Sort")
-    - [Insertion Sort](../master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py#42 "Ordenação Elementar")
+    - [Selection Sort](../master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py#L30 "Selection Sort")
+    - [Insertion Sort](../master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py#L42 "Ordenação Elementar")
 - Odenação Avançada
     - [Quick Sort][Quicksort]
     - Merge Sort
