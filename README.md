@@ -48,9 +48,10 @@ https://github.com/aplneto/IF969/wiki/Python).
     - [Árvore Trie](../master/Estruturas%20de%20Dados/Arvores/ArvoreTrie.py)
     - [~Árvore Patrícia (Radix Tree)~](../master/Estruturas%20de%20Dados/Arvores/RadixTree.py "Incompleta")
 - Hash
-- Heaps
-    - Heap Máximo
-    - Heap Mínimo
+- [Heaps][Heap]
+    - [Heap Máximo][HeapMax]
+    - [Heap Mínimo][HeapMin]
+    - [Heap Sort]
 
 ### Algoritmos de Ordenação
 - Ordenação Elementar
@@ -100,6 +101,11 @@ https://github.com/aplneto/IF969/wiki/Python).
 [ord elementar]: ../master/Algoritmos%20de%20Ordena%C3%A7%C3%A3o/ordenacaoelementar.py "Ordenação Elementar"
 [pep-8]: https://www.python.org/dev/peps/pep-0008/ "Guia de Estilo para código Python"
 [wiki]: ../../wiki "Wiki"
+[Heap]: https://github.com/aplneto/IF969/blob/6bd3a795f795e53d2e12e7011888154971bfead5/Estruturas%20de%20Dados/Heap.py#L20
+[HeapMax]: https://github.com/aplneto/IF969/blob/6bd3a795f795e53d2e12e7011888154971bfead5/Estruturas%20de%20Dados/Heap.py#L153
+[HeapMin]: https://github.com/aplneto/IF969/blob/6bd3a795f795e53d2e12e7011888154971bfead5/Estruturas%20de%20Dados/Heap.py#L197
+[Heap Sort]: https://github.com/aplneto/IF969/blob/6bd3a795f795e53d2e12e7011888154971bfead5/Estruturas%20de%20Dados/Heap.py#L75
+
 <!-- imagens (24px para ícones) -->
 
 [wiki-icon]: https://img.icons8.com/ios/24/000000/documents-filled.png
