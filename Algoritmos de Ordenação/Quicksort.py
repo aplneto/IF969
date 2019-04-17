@@ -16,8 +16,10 @@ Descrição: Algoritmo de ordenação Quicksort
 """
 
 def quicksort(arr, inicio = 0, fim = -1):
-    if fim == -1: fim = len(arr)-1
-    if inicio >= fim: return
+    if fim == -1:
+        fim = len(arr)-1
+    if inicio >= fim:
+        return
     pivo = esq = inicio
     dir_ = fim
     while esq < dir_:
@@ -35,5 +37,5 @@ def quicksort(arr, inicio = 0, fim = -1):
                 break
             esq += 1
             if esq >= dir_: break
-    quicksort(arr, inicio, pivo-1)
+    if pivo > 0: quicksort(arr, inicio, pivo-1)
     quicksort(arr, pivo+1, fim)
