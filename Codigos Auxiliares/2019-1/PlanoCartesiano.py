@@ -41,8 +41,9 @@ class PlanoCartesiano:
         self.tam = 0
         if iteravel:
             for x, y in iteravel:
-                if x and y:
-                    self.adicionar_ponto(x, y)
+              self.__abscissas.append(x)
+              self.__ordenadas.append(y)
+              self.tam += 1
     
     @property
     def eixo_x(self):
@@ -60,7 +61,7 @@ class PlanoCartesiano:
             x2 (int): coordenada y do ponto
         
         Returns:
-            int: número correspondente ao ponto
+            int: número correspondente ao índice do ponto
         '''
         self.__abscissas.append(x1)
         self.__ordenadas.append(y1)
