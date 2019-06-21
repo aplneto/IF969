@@ -19,49 +19,77 @@ Licenca: The MIT License (MIT)
 
 """
 
+import numpy
+
 class GrafoMatriz(object):
     '''
     TAD Grafo representado através de Matriz de Adjacências.
     '''
-    def __init__(self, v = 0, direcionado = False):
-        self.vertices = v
-        self.adj = [[0]*v for x in range (v)]
-        self.__dir = direcionado
+    def __init__(self, v = 0, **kwargs):
+        ''' Método Construtor do Grafo por Matriz
+        
+        Args:
+            v (int): número de vértices
+        Kwargs:
+            direcionado (bool): define se o grafo é direcionado ou não
+            ponderado (bool): define se o grafo é ponderado ou não
+        '''
+        self.__v = v
+        self.__matriz_adj = numpy.zeros((v, v))
+        self.__dir = kwargs.get('direcionado', False)
+        self.__pond = kwargs.get('ponderado', False)
     
-    def inserir_aresta(self, u, v):
+    def inserir_aresta(self, i, j, p = 1):
         '''
         Função de inserção de aresta. Quando o grafo não é direcionado, a
         inserção acontece nos valores uxv e vxu da matriz para cada aresta.
+        Args:
+            i (int): vértice de origem
+            j (int): vértice de destino
+            p (int): peso
         '''
         try:
-            self.adj[u][v] = 1
+            self.__matriz_adj[i][j] = p
             if not self.__dir:
-                self.adj[v][u] = 1
+                self.__matriz_adj[j][i] = p
         except IndexError:
             raise IndexError ("Um ou mais vértices não pertencem ao grafo")
     
-    def verificar_aresta(self, u, v):
+    def aresta(self, i, j):
+        '''
+        Verifica se existe uma aresta entre dois vértices
+        Args:
+            i (int): vértice de origem
+            j (int): vértice de destino
+        '''
         try:
-            return bool(self.ad[u][v])
+            return bool(self.__matriz_adj[i][j])
         except IndexError:
             raise IndexError ("Um ou mais vértices não pertencem ao grafo")
     
-    def adjacentes(self, v):
+    def adjacentes(self, i):
         '''
-        Função retorna uma lista de vértices adjacentes ao vertice parâmetro.
+        Retorna uma lista de vértices adjacentes ao vertice parâmetro.
+        Args:
+            i (int): índice do vértice
         '''
         try:
-            adj = []
-            for u, a in enumerate(self.adj[v]):
-                if a: adj.append(u)
-            return adj
+            adj = list(self.__matriz_adj[i])
+            if self.ponderado:
+                return list((i, v) for i, v in enumerate(adj) if v)
+            else:
+                return list(i for i, v in enumerate(adj) if v)
         except:
             IndexError ("Vértice não pertence ao grafo")
     
-    def remover_aresta(self, u, v):
+    def remover_aresta(self, i, j):
         try:
-            if self.adj[u][v]:
-                self.adj[u][v] = 0
+            a = self.__matriz_adj[i][j]
+            if a:
+                self.__matriz_adj[i][j] = 0
+                if not self.direcionado:
+                    self.__matriz_adj[j][i] = 0
+                return a
             else:
                 raise KeyError ("Aresta não pertence ao grafo")
         except IndexError:
@@ -74,20 +102,23 @@ class GrafoMatriz(object):
         triângulo superior, uma vez que a matriz é espelhada.
         '''
         arestas = 0
-        for u in range (self.vertices):
-            for v in range(self.vertices):
-                if self.__dir:
-                    arestas += self.adj[u][v]
-                else:
-                    if u <= v:
-                        arestas += self.adj[u][v]
+        for i in range (self.__v):
+            for j in range(self.__v):
+                if not(self.ponderado and i+j == self.__v):
+                    arestas += bool(self.__matriz_adj[i][j])
         return arestas
     
+    @property
     def direcionado(self):
-        '''
-        Retorna True se o gráfico for direcionado, False se não.
-        '''
         return self.__dir
+    
+    @property
+    def ponderado(self):
+        return self.__pond
+    
+    @property
+    def matriz_de_adjacencias(self):
+        return self.__matriz_adj
     
     def __len__(self):
         return self.vertices
