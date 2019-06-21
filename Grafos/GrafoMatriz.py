@@ -10,8 +10,8 @@ Email:      apln2@cin.ufpe.br
 
                         Created on Thu May 24 01:28:08 2018
 
-Descricao: Códigos das classes de dado abstratas grafos com as suas funções
-básicas implementadas
+Descrição: Script contento a classe Grafo, representada através de Matriz de
+    Adjacências.
 
 Licenca: The MIT License (MIT)
 
@@ -21,7 +21,7 @@ Licenca: The MIT License (MIT)
 
 import numpy
 
-class GrafoMatriz(object):
+class TADGrafoMatriz:
     '''
     TAD Grafo representado através de Matriz de Adjacências.
     '''
