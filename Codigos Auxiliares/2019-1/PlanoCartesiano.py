@@ -189,11 +189,3 @@ class PlanoCartesiano:
         return self.__class__.__name__+'([{}])'.format(', '.join(
                 "({0}, {1})".format(self.__abscissas[p], self.__ordenadas[p])
                 for p in range (1, self.tam+1)))
-
-if __name__ == "__main__":
-    p = PlanoCartesiano()
-    p.adicionar_ponto(1, 1)
-    p.adicionar_ponto(4, 5)
-    p.adicionar_ponto(7, 9)
-    p.adicionar_ponto(6, 13)
-    p.adicionar_ponto(10, 13)
