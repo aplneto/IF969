@@ -69,17 +69,17 @@ https://github.com/aplneto/IF969/wiki/Python).
 
 ### Grafos
 - Tipos Abstrados de Dados
-    - Lista de Adjacências
-    - [Matriz de Adjacências](..Grafos/GrafoMatriz.py)
-- Caminhamento
-    - Busca em Largura
-    - Busca em Profundidade
+    - [Lista de Adjacências](Grafos/GrafoLista.py)
+    - [Matriz de Adjacências](Grafos/GrafoMatriz.py)
+- [Caminhamento](Grafos/Busca.py)
+    - [Busca em Largura](Grafos/Busca.py#L22)
+    - [Busca em Profundidade](Grafos/Busca.py#L64)
 - Árvore Geradora Mínima
     - Kruskal
     - Prim
 - Menor Caminho
+    - [Dijkistra](..Grafos/Dijkstra.py)
     - Floyd Warshall
-    - Djikistra
 
 ### Programação Dinâmica
 
