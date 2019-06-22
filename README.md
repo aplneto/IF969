@@ -78,7 +78,7 @@ https://github.com/aplneto/IF969/wiki/Python).
     - Kruskal
     - Prim
 - Menor Caminho
-    - [Dijkistra](..Grafos/Dijkstra.py)
+    - [Dijkistra](Grafos/Dijkstra.py)
     - Floyd Warshall
 
 ### Programação Dinâmica
