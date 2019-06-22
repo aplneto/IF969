@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Universidade Federal de Pernambuco (UFPE) (http://www.ufpe.br)
@@ -25,8 +26,8 @@ class TADGrafoLista:
     TAD Grafo representado através de Lista de Adjacências
     '''
     def __init__(self, v = 0, **kwargs):
-        '''
-        Método construtor do grafo
+        '''Método construtor do grafo
+        
         Args:
             v (int): número de vértices
         kwargs:
@@ -48,92 +49,98 @@ class TADGrafoLista:
     
     @property
     def ponderado(self):
-        '''
-        Retorna True se o grafo for ponderado
-        '''
         return self.__ponderado
     
     @property
     def direcionado(self):
-        '''
-        Retorna True se o grafo for direcionado
-        '''
         return self.__direcionado
     
     def inserir_vertice(self):
-        '''
-        Insere um vértice na lista de adjcências
+        '''Método de criação de vértices
+        
+        Criar uma nova lista de adjacências vazia e retorna o índice do vértice
+        criado.
+        
+        Returns:
+            (int): índice do novo vértice
         '''
         self.__lista_adj.append([])
         self.tam += 1
         return self.tam-1
     
     def inserir_aresta(self, i, j, p = 1):
-        '''
-        Insere uma aresta se o grafo não for direcionado
-        '''
-        if i >= self.tam or self.__lista_adj[i] == None: raise IndexError
-        if j >= self.tam or self.__lista_adj[i] == None: raise IndexError
-        self.__lista_adj[i].append((j,p))
-        if not self.__direcionado:
-            self.__lista_adj[j].append((i,p))
-    
-    def remover_aresta(self, i, j):
-        '''
+        '''Método de criação de Arestas
         
+        Insere uma aresta na lista de adjacências de i contendo o valor de j e
+        o peso da aresta.
+        Se o grafo não for direcionado, a tupla contendo i e p é também
+        adicionada a lista de adjacências de j.
+        Args:
+            i (int): índice do vértice de origem
+            j (int): índice do vértice de destino
+            p (float): peso da aresta
         '''
-        if i >= self.tam or self.__lista_adj[i] == None: raise IndexError
-        if j >= self.tam or self.__lista_adj[i] == None: raise IndexError
+        if i >= self.tam: raise IndexError(f"#{i} não pertence ao vértice")
+        if j >= self.tam: raise IndexError(f"#{j} não pertence ao vértice")
+        self.__lista_adj[i].append((j,p))
+        if not self.__direcionado: self.__lista_adj[j].append((i,p))
+    
+    def remover_aresta(self, i, j, p):
+        '''Método de remoção de arestas
+        
+        Remove da lista de adjacências de i e retorna a primeira aresta
+        direcionada a j com peso p.
+        Caso o grafo não seja direcionado, remove também a aresta da lista de
+        adjacências de j.
+        Args:
+            i (int): índice do vértice de origem
+            j (int): índice do vértice de destino
+            p (int): peso da aresta
+        Returns:
+            (tuple): tupla contendo i, j e p, caso a aresta tenha sido removida
+            None: caso a aresta não exista
+        '''
+        if i >= self.tam: raise IndexError(f"#{i} não pertence ao vértice")
+        if j >= self.tam: raise IndexError(f"#{j} não pertence ao vértice")
         for aresta in self.__lista_adj[i]:
-            if aresta[0] == j:
+            if aresta == (j, p):
                 self.__lista_adj[i].remove(aresta)
-                break
-        if not self.direcionado:
-            for aresta in self.__lista_adj[j]:
-                if aresta[0] == i:
-                    self.__lista_adj[j].remove(aresta)
-                    break
+                if not self.direcionado: self.__lista_adj[j].remove((i, p))
+                return (i, j, p)
+        return None
     
-    def adjacentes(self, i):
+    def arestas_adjacentes(self, i):
         '''
-        Retorna a lista de vértices adjacentes
+        Retorna a lista de arestas adjacentes ao vértice i
+        
+        Args:
+            i (int): índice do vértice i
+        Returns:
+            (list): contendo os tuplas com os vértices de destino pesos das
+                arestas se o grafo for ponderado. Caso não, retorna uma lista
+                com os índices dos vértices de destino.
         '''
-        if i >= self.tam: raise ArithmeticError
-        if self.__ponderado:
-            return self.__lista_adj[i]
-        else:
-            l = [x[0] for x in self.__lista_adj[i]]
-            return l
+        if i >= self.tam: raise IndexError(f"#{i} não percence ao vértice")
+        return self.__lista_adj[i]
     
-    def __adj(self, i):
-        if i >= self.tam: raise ArithmeticError
-        l = [x[0] for x in self.__lista_adj[i]]
-        return l        
-    
-    def menor_aresta(self):
-        '''Verifica a aresta de menor peso
+    def vertices_adjacentes(self, i):
         '''
-        menor_aresta = (-1, -1, float('inf'))
-        for v in range(self.tam):
-            for i in range(self.tam):
-                if self.__lista_adj[v][i][1] < menor_aresta[1]:
-                    menor_aresta = (v, i, self.__lista_adj[v][i][1])
-        if menor_aresta == (-1, -1, float('inf')): raise ArithmeticError
-        return menor_aresta and not self.__ponderado or menor_aresta[:-1]
-
-    def maior_aresta(self):
-        '''Verifica a aresta de maior peso
+        Retorna a lista de vértices adjacentes ao vértice
+        Args:
+            i (int): índice do vértice i
+        Returns:
+            (list): contendo os índices dos vértices adjacentes ao vértice i
         '''
-        maior_aresta = (-1, -1, -float('inf'))
-        for v in range(self.tam):
-            for i in range(self.tam):
-                if self.__lista_adj[v][i][1] > maior_aresta[1]:
-                    maior_aresta = (v, i, self.__lista_adj[v][i][1])
-        if maior_aresta == (-1, -1, -float('inf')): raise ArithmeticError
-        return maior_aresta and not self.__ponderado or maior_aresta[:-1]
+        if i >= self.tam: raise IndexError(f"#{i} não percence ao vértice")
+        return [x[0] for x in self.__lista_adj[i]]
     
     def grau_de_saida(self, i):
-        '''Retorna a quantidade de vértices adjacentes
+        '''Retorna a quantidade de vértices adjacentes ao vértice i
+        
+        Args:
+            i (int): índice do vértice
+        Returns:
+            (int): gráu de saída do vértice i
         '''
         return len(self.__lista_adj[i])
     
@@ -145,6 +152,16 @@ class TADGrafoLista:
         return entrada
     
     def aresta(self, i, j):
+        '''Método de verificação de existência de aresta
+        
+        Procura por uma aresta direcionada a j na lista de adjacências de i.
+        
+        Args:
+            i (int): índice do vértice de origem
+            j (int): índice do vértice de saída
+        Returns:
+            (bool): existência de aresta de i para j
+        '''
         for t in self.__lista_adj[i]:
             if t[0] == j: return True
         return False

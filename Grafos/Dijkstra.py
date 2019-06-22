@@ -32,7 +32,7 @@ def dijkstra(grafo, inicial = 0):
     
     while vertices:
         vertice = vertices.pop(0)
-        for aresta in grafo.adjacentes(vertice):
+        for aresta in grafo.arestas_adjacentes(vertice):
             relaxar(vertice, aresta)
         heapify_vertices(vertices, pesos)
             

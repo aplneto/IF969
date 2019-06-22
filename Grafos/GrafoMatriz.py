@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Universidade Federal de Pernambuco (UFPE) (http://www.ufpe.br)
@@ -38,6 +39,9 @@ class TADGrafoMatriz:
         self.__matriz_adj = numpy.zeros((v, v))
         self.__dir = kwargs.get('direcionado', False)
         self.__pond = kwargs.get('ponderado', False)
+        iteravel = kwargs.get('iteravel', None)
+        if iteravel is not None:
+            self.__construir_grafo(iteravel)
     
     def inserir_aresta(self, i, j, p = 1):
         '''
@@ -67,20 +71,36 @@ class TADGrafoMatriz:
         except IndexError:
             raise IndexError ("Um ou mais vértices não pertencem ao grafo")
     
-    def adjacentes(self, i):
+    def arestas_adjacentes(self, i):
         '''
         Retorna uma lista de vértices adjacentes ao vertice parâmetro.
         Args:
             i (int): índice do vértice
+        Returns:
+            (list): lista com arestas saindo de i
         '''
         try:
             adj = list(self.__matriz_adj[i])
-            if self.ponderado:
-                return list((i, v) for i, v in enumerate(adj) if v)
-            else:
-                return list(i for i, v in enumerate(adj) if v)
         except:
             IndexError ("Vértice não pertence ao grafo")
+        else:
+            return list((i, v) for i, v in enumerate(adj) if v)
+    
+    def vertices_adjacentes(self, i):
+        '''
+        Retorna apenas a lista de vértices adjacentes ao vértice i
+        
+        Args:
+            i (int): índice do vértice
+        Returns:
+            (list): lista de vértices adjacentes
+        '''
+        try:
+            adj = list(self.__matriz_adj[i])
+        except:
+            IndexError ("Vértice não pertence ao grafo")
+        else:
+            return list(i for i, v in enumerate(adj) if v)
     
     def remover_aresta(self, i, j):
         try:
@@ -104,9 +124,20 @@ class TADGrafoMatriz:
         arestas = 0
         for i in range (self.__v):
             for j in range(self.__v):
-                if not(self.ponderado and i+j == self.__v):
+                if not(self.ponderado and i<=j):
                     arestas += bool(self.__matriz_adj[i][j])
         return arestas
+    
+    def __construir_grafo(self, iteravel):
+        '''Método de construção do grafo a partir de uma matriz de adjacências
+        
+        Args:
+            iteravel: objeto iteravel (nxn) contendo a matriz de adjacências.
+        '''
+        if len(iteravel) != len(iteravel[0]): raise ValueError
+        self.__v = len(iteravel)
+        self.__matriz_adj = numpy.asarray(iteravel)
+        
     
     @property
     def direcionado(self):
@@ -120,26 +151,31 @@ class TADGrafoMatriz:
     def matriz_de_adjacencias(self):
         return self.__matriz_adj
     
+    @property
+    def tam(self):
+        return self.__v
+    
     def __len__(self):
         return self.vertices
     
     def __str__(self):
-        string = '   '
-        for n in range (self.vertices):
-            string += str(n)
-            if n < self.vertices-1:
-                string += ' '
-            else:
-                string += '\n'
-        for i, u in enumerate(self.adj):
-            string += '{}: '.format(i)
-            for cont, v in enumerate(u):
-                string += str(v)
-                if cont < self.vertices-1:
-                    string+=' '
-                elif i < self.vertices-1:
-                    string+='\n'
-        return string
+        body = []
+        maior_index = 0
+        maior_info = 0
+        for i in range(self.__v):
+            index = f"{i}: "
+            info = f"{'|'.join(str(x) for x in self.__matriz_adj[i])}"
+            t_info = len(info)
+            t_index = len(index)
+            body.append(index+info)
+            if t_info > maior_info: maior_info = t_info
+            if t_index > maior_index: maior_index = t_index
+        spc = maior_info//self.__v
+        header = f"{' '*maior_index}"+\
+        f"{(' '*spc).join(str(x) for x in list(range(self.__v)))}"
+        body.insert(0, header)
+        return '\n'.join(body)
     
     def __repr__(self):
-        return str(self)
+        return f"{self.__class__.__name__}\
+({list(x for x in (list(i) for i in self.__matriz_adj))})"
