@@ -42,7 +42,7 @@ def busca_em_profundidade(grafo):
             grafo (object): objeto do tipo grafo no qual a busca será
                 realizada;
             v (int): índice do vértice cinza atual;
-            orignes (list): vetor de origens;
+            origens (list): vetor de origens;
             marcados (list): vetor auxiliar de marcação de vértices brancos
                 (False) e vértices pretos (True).
         Returns:
