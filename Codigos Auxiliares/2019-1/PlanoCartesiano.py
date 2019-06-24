@@ -38,12 +38,12 @@ class PlanoCartesiano:
         '''
         self.__abscissas = [0] #eixo X
         self.__ordenadas = [0] #eixo Y
-        self.tam = 0
+        self.__tam = 0
         if iteravel:
             for x, y in iteravel:
               self.__abscissas.append(x)
               self.__ordenadas.append(y)
-              self.tam += 1
+              self.__tam += 1
     
     @property
     def eixo_x(self):
@@ -65,8 +65,8 @@ class PlanoCartesiano:
         '''
         self.__abscissas.append(x1)
         self.__ordenadas.append(y1)
-        self.tam += 1
-        return self.tam
+        self.__tam += 1
+        return self.__tam
     
     def coordenadas(self, p):
         '''
@@ -139,7 +139,7 @@ class PlanoCartesiano:
             IndexError se o ponto não pertencer ao plano
         '''
         return [(i, self.distancia_entre_pontos(p, i)) for i in range(
-                1, self.tam+1) if i!=p]
+                1, self.__tam+1) if i!=p]
     
     def matriz_de_adj(self):
         '''
@@ -152,30 +152,34 @@ class PlanoCartesiano:
         Returns:
             numpy.array: matriz de adjacências shape=(n,n)
         '''
-        matriz = numpy.zeros((self.tam+1, self.tam+1))
-        for i in range(1, self.tam+1):
-            for j in range(1, self.tam+1):
+        matriz = numpy.zeros((self.tam, self.tam))
+        for i in range(self.tam):
+            for j in range(self.tam):
                 if i!=j:
-                    matriz[i, j] = self.distancia_entre_pontos(i, j)
+                    matriz[i, j] = self.distancia_entre_pontos(i+1, j+1)
         return matriz
     
     def index(self, x:int, y:int):
         '''
-        Retorna o índice do ponto com as coordenadas x e y.
-        Caso o ponto não pertença ao plano, retorna 0.
+        Retorna o índice do ponto com as coordenadas x e y..
         
         Args:
             x (int): coordenada x do ponto
             y (int): coordenada y do ponto
-        
+        Raises:
+            ValueError: se os pontos x e y não estiverem no plano.
         Returns:
             int: índice do ponto no plano ou 0, caso o ponto não pertença ao
                 plano
         '''
-        for p in range(1, self.tam+1):
+        for p in range(1, self.__tam+1):
             if self.__abscissas[p] == x and self.__ordenadas[p] == y:
                 return p
-        return 0
+        raise ValueError
+    
+    def __iter__(self):
+        for p in range(self.__tam):
+            yield self.__abscissas[p], self.__ordenadas[p]
     
     def __contains__(self, x:int, y:int):
         return bool(self.index(x, y))
@@ -183,9 +187,9 @@ class PlanoCartesiano:
     def __str__(self):
         return 'x, y: '+', '.join("({0}, {1})".format(self.__abscissas[p],
                                   self.__ordenadas[p]) for p in range (1,
-                                                  self.tam+1))
+                                                  self.__tam+1))
     
     def __repr__(self):
         return self.__class__.__name__+'([{}])'.format(', '.join(
                 "({0}, {1})".format(self.__abscissas[p], self.__ordenadas[p])
-                for p in range (1, self.tam+1)))
+                for p in range (1, self.__tam+1)))
